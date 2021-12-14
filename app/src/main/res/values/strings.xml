@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mariposa</string>
+    <string-array name="Questions">
+        <item>What is your nickname</item>
+        <item>What is your mother\'s maiden name</item>
+        <item>What school did you attend when you are elementary</item>
+        <item>What is your favorite food</item>
+        <item>What school did you attend when you are high-school</item>
+    </string-array>
+</resources>

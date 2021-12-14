@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/anim_slide_left.xml" value="0.2942708333333333" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/checkbox.xml" value="0.2942708333333333" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/dialogtheme.xml" value="0.18993055555555555" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/edittext_stroke.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/edittext_stroke_error.xml" value="0.18993055555555555" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/edittext_stroke_full.xml" value="0.19618055555555555" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/ic_noun_circle_1007361__1_.xml" value="0.28489583333333335" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/rounded_corner.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/rounded_corner_checkbox.xml" value="0.2942708333333333" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/rounded_corner_plain.xml" value="0.21875" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/drawable/rounded_corners_plain.xml" value="0.21875" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/layout/activity_registration.xml" value="0.29005975013579577" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/layout/rounded_corner.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2942708333333333" />
+        <entry key="..\:/Users/Jerson Reyes/AndroidStudioProjects/Activity/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2942708333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
