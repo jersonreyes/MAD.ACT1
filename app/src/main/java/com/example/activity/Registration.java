@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -21,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -105,19 +107,24 @@ public class Registration extends AppCompatActivity {
         q1 = findViewById(R.id.q1);
         q2 = findViewById(R.id.q2);
         q3 = findViewById(R.id.q3);
+
+        q1.setSelection(0,false);
+        q2.setSelection(1,false);
+        q3.setSelection(2,false);
+
         int q1_sel = q1.getSelectedItemPosition();
         int q2_sel = q2.getSelectedItemPosition();
         int q3_sel = q3.getSelectedItemPosition();
 
         int finalError_ctr = error_ctr;
-        q1.setSelection(0,false);
-        q2.setSelection(0,false);
-        q3.setSelection(0,false);
+
 
         q1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View view, int position, long id) {
-
+                int q1_sel = q1.getSelectedItemPosition();
+                int q2_sel = q2.getSelectedItemPosition();
+                int q3_sel = q3.getSelectedItemPosition();
                 validate_security(q1_sel, q2_sel, q3_sel, finalError_ctr);
             }
             @Override public void onNothingSelected(AdapterView<?> parent) {}
@@ -125,6 +132,9 @@ public class Registration extends AppCompatActivity {
         q2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View view, int position, long id) {
+                int q1_sel = q1.getSelectedItemPosition();
+                int q2_sel = q2.getSelectedItemPosition();
+                int q3_sel = q3.getSelectedItemPosition();
                 validate_security(q1_sel, q2_sel, q3_sel, finalError_ctr);
             }
             @Override public void onNothingSelected(AdapterView<?> parent) {}
@@ -132,6 +142,9 @@ public class Registration extends AppCompatActivity {
         q3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View view, int position, long id) {
+                int q1_sel = q1.getSelectedItemPosition();
+                int q2_sel = q2.getSelectedItemPosition();
+                int q3_sel = q3.getSelectedItemPosition();
                 validate_security(q1_sel, q2_sel, q3_sel, finalError_ctr);
             }
             @Override public void onNothingSelected(AdapterView<?> parent) {}

@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="240sp"
         android:layout_marginTop="-40dp"
+        android:translationZ="90dp"
         android:background="@drawable/background_login"
         android:orientation="vertical" />
 
@@ -19,28 +20,21 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="120sp"
+        android:translationZ="91dp"
         android:layout_marginTop="35dp"
         app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/background"
-        android:layout_gravity="center"
-        android:layout_marginBottom="40sp"
-        android:gravity="center"
-        android:text="Create\nAccount"
-        android:textColor="#90000000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+
 
     <ScrollView
+        android:id="@+id/scrollv"
         android:layout_width="325sp"
         android:layout_height="match_parent"
-        android:layout_below="@id/welcome"
+        android:layout_below="@id/background"
+        android:layout_marginTop="-50dp"
         android:layout_centerHorizontal="true"
         android:scrollbars="none">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,9 +42,37 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:paddingLeft="0dp"
+                android:text="Create\nAccount"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:translationZ="91dp" />
+
+            <TextView
+                android:id="@+id/detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcome"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40sp"
+                android:gravity="center"
+                android:text="Fields are required unless stated" />
+
+            <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:text="Username" />
 
             <EditText
@@ -63,7 +85,7 @@
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="juandelacruz"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
@@ -104,15 +126,16 @@
                 android:drawableLeft="@drawable/lock"
                 android:drawablePadding="20dp"
                 android:ems="10"
-                android:tag="111"
                 android:hint="******"
                 android:inputType="textPassword"
                 android:paddingTop="20dp"
-                android:paddingBottom="20dp" />
+                android:paddingBottom="20dp"
+                android:tag="111" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
                 android:text="First Name" />
 
@@ -120,12 +143,12 @@
                 android:id="@+id/firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/edittext_stroke"
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="Juan"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
@@ -158,7 +181,7 @@
                         android:drawablePadding="20dp"
                         android:ems="10"
                         android:hint="(Optional)"
-                        android:inputType="text"
+                        android:inputType="textCapWords"
                         android:paddingTop="20dp"
                         android:paddingBottom="20dp" />
                 </LinearLayout>
@@ -183,7 +206,7 @@
                         android:drawablePadding="20dp"
                         android:ems="10"
                         android:hint="Dela Cruz"
-                        android:inputType="text"
+                        android:inputType="textCapWords"
                         android:paddingTop="20dp"
                         android:paddingBottom="20dp" />
                 </LinearLayout>
@@ -194,6 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Gender" />
 
             <RadioGroup
@@ -203,26 +227,26 @@
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/male"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:text="Male" />
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Male" />
 
-                    <RadioButton
-                        android:id="@+id/female"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:text="Female" />
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Female" />
 
-                    <RadioButton
-                        android:id="@+id/others"
-                        android:layout_width="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_height="wrap_content"
-                        android:text="Others"/>
+                <RadioButton
+                    android:id="@+id/others"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Others" />
 
             </RadioGroup>
 
@@ -230,7 +254,8 @@
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
                 android:text="Set Date of Birth" />
 
             <Button
@@ -238,9 +263,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
+                android:padding="20dp"
                 android:background="@drawable/edittext_stroke_full"
-                android:text="01/01/1990"
-                android:onClick="dateDialog"/>
+                android:onClick="dateDialog"
+                android:text="01/01/1990" />
 
 
             <LinearLayout
@@ -259,41 +285,48 @@
                     android:id="@+id/street"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittext_stroke"
-                    android:drawableRight="@drawable/location"
-                    android:drawablePadding="20dp"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/edittext_stroke"
+                    android:drawableLeft="@drawable/location"
+                    android:drawablePadding="20dp"
                     android:ems="10"
                     android:hint="Maria Cristina St."
-                    android:inputType="text"
+                    android:inputType="textCapWords"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="House Number" />
 
                 <EditText
                     android:id="@+id/housenumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittext_stroke"
-                    android:drawableRight="@drawable/house"
-                    android:drawablePadding="30dp"
                     android:layout_marginBottom="30dp"
+                    android:background="@drawable/edittext_stroke"
+                    android:drawableLeft="@drawable/house"
+                    android:drawablePadding="20dp"
                     android:ems="10"
                     android:hint="01 Carola"
-                    android:inputType="text"
-                    android:paddingTop="40dp"
+                    android:inputType="textCapWords"
+                    android:paddingTop="20dp"
                     android:paddingBottom="20dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="35dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="98dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:inputType="text"
+                        android:inputType="textCapWords"
                         android:orientation="vertical">
 
                         <TextView
@@ -307,12 +340,13 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edittext_stroke"
-                            android:drawablePadding="20dp"
+                            android:hint="Caniogan"
+                            android:inputType="textCapWords"
                             android:paddingTop="20dp"
-                            android:inputType="text"
                             android:paddingBottom="20dp"
                             android:text="" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="104dp"
                         android:layout_height="wrap_content"
@@ -331,19 +365,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edittext_stroke"
-                            android:drawablePadding="20dp"
+                            android:hint="Calumpit"
+                            android:inputType="textCapWords"
                             android:paddingTop="20dp"
-                            android:inputType="text"
                             android:paddingBottom="20dp"
                             android:text="" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="111dp"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="top|center"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textView16"
@@ -355,9 +389,10 @@
                             android:id="@+id/province"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text"
                             android:background="@drawable/edittext_stroke"
                             android:drawablePadding="20dp"
+                            android:hint="Bulacan"
+                            android:inputType="textCapWords"
                             android:paddingTop="20dp"
                             android:paddingBottom="20dp"
                             android:text="" />
@@ -368,6 +403,7 @@
 
             <TextView
                 android:id="@+id/textView18"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone Number" />
@@ -381,9 +417,10 @@
                 android:drawableLeft="@drawable/phone"
                 android:drawablePadding="20dp"
                 android:ems="10"
+                android:hint="0942-215-1251"
 
-                android:hint="09xx-xxxx-xxx"
                 android:inputType="number"
+                android:maxLength="11"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
@@ -391,7 +428,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="Select Your Hobbies" />
 
@@ -407,10 +444,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="20dp"
                     android:text="Singing"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch2"
@@ -420,10 +457,10 @@
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@+id/ch1"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="20dp"
                     android:text="Playing\nGuitar"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch3"
@@ -431,10 +468,10 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/ch2"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="20dp"
                     android:text="Playing Games"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch4"
@@ -443,10 +480,10 @@
                     android:layout_below="@+id/ch1"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="20dp"
                     android:text="Dancing"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch5"
@@ -457,10 +494,10 @@
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@+id/ch4"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="15dp"
                     android:text="Painting"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch6"
@@ -469,10 +506,10 @@
                     android:layout_below="@+id/ch1"
                     android:layout_toRightOf="@+id/ch5"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="15dp"
                     android:text="Reading"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch7"
@@ -481,10 +518,10 @@
                     android:layout_below="@+id/ch4"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="15dp"
                     android:text="Baking"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch8"
@@ -495,10 +532,10 @@
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@+id/ch7"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="15dp"
                     android:text="Gardening"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch9"
@@ -507,10 +544,10 @@
                     android:layout_below="@+id/ch4"
                     android:layout_toRightOf="@+id/ch8"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="15dp"
                     android:text="Writing"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
                 <CheckBox
                     android:id="@+id/ch10"
@@ -518,10 +555,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ch7"
                     android:background="@drawable/rounded_corner_checkbox"
-                    android:buttonTint="@color/purple_200"
+                    android:buttonTint="@color/black"
                     android:paddingRight="15dp"
                     android:text="Cooking"
-                    android:textColor="@color/purple_200" />
+                    android:textColor="@color/black" />
 
             </RelativeLayout>
 
@@ -537,10 +574,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textStyle="italic"
                 android:layout_marginBottom="20dp"
+                android:text="Security Questions"
                 android:textSize="15sp"
-                android:text="Security Questions" />
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -554,9 +591,9 @@
                 android:id="@+id/q1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:entries="@array/Questions"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:entries="@array/Questions" />
+                android:paddingBottom="10dp" />
 
             <EditText
                 android:id="@+id/q1a"
@@ -567,7 +604,7 @@
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="Answer #1"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
@@ -583,9 +620,9 @@
                 android:id="@+id/q2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:entries="@array/Questions"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:entries="@array/Questions" />
+                android:paddingBottom="10dp" />
 
             <EditText
                 android:id="@+id/q2a"
@@ -596,7 +633,7 @@
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="Answer #2"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
@@ -612,9 +649,9 @@
                 android:id="@+id/q3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:entries="@array/Questions"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:entries="@array/Questions" />
+                android:paddingBottom="10dp" />
 
             <EditText
                 android:id="@+id/q3a"
@@ -625,7 +662,7 @@
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="Answer #3"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
@@ -635,8 +672,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_corner"
-                android:text="Sign Up"
                 android:onClick="validate"
+                android:text="Sign Up"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
@@ -653,11 +690,11 @@
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corners_plain"
-                android:text="Sign In"
-                android:onClick="login_transfer"
-                android:textAllCaps="false"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_corners_plain"
+                android:onClick="login_transfer"
+                android:text="Sign In"
+                android:textAllCaps="false"
                 android:textColor="#50000000" />
 
         </LinearLayout>
