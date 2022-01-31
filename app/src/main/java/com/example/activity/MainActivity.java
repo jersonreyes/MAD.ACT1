@@ -32,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
     //CREATE AN ARRAYLIST THAT WILL BE POPULATED BY DATA FROM THE ARRAYLIST FROM DBHANDLER SINGLETON
     ArrayList<String> login_cred = new ArrayList<String>();
 
+    //NEW CODE NEW CODE
+    /*
+        NEW CODE
+        NEW CODENEW CODENEW CODENEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+
+        NEW CODE
+         NEW CODE
+        NEW CODENEW CODENEW CODENEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
