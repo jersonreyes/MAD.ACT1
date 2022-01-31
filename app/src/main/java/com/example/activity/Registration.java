@@ -453,6 +453,7 @@ public class Registration extends AppCompatActivity {
                 .setIcon(R.drawable.person);
         alert.show();**/
         Intent i = new Intent(this, MainActivity.class);
+        //i.putExtra("test data", "from registration");
         startActivity(i);
     }
 

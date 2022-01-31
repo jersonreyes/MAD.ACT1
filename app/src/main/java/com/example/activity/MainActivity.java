@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,11 +23,21 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password;
     String username_string, password_string;
     boolean found = false;
-    String[][] login_cred = {{"Anna", "13579abcdeA"}, {"Lorna", "Th3Q41ckBr0wnF0x"},{"Fe", "p@zzW0rd"}};
+
+    //ARRAYLIST FOR DYNAMIC ADDING OF VALUES
+    ArrayList<String> login_cred = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //SET THE CREDENTIALS READY
+
+        //USERNAME AND PASSWORD SEPARATED BY SPACES (String.split()) TO ACCESS
+        login_cred.add("Anna 13579abcdeA");
+        login_cred.add("Lorna Th3Q41ckBr0wnF0x");
+        login_cred.add("Fe p@zzW0rd");
+
         //SET STATUSBAR TO TRANSAPRENT
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_main);
@@ -91,18 +102,19 @@ public class MainActivity extends AppCompatActivity {
                 .setIcon(R.drawable.person);
         alert.show();**/
         Intent i = new Intent(this, Registration.class);
+        //i.putExtra("test data", "from login");
         startActivity(i);
     }
 
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
     public boolean verify_rec(String type) {
         if(type=="username") {
-            for (int i = 0; i < login_cred.length; i++)
-                if (username.getText().toString().equals(login_cred[i][0]))
+            for (int i = 0; i < login_cred.size(); i++)
+                if (username.getText().toString().equals(login_cred.get(i).split(" ")[0]))
                     return true;
         }   else {
-            for (int i = 0; i < login_cred.length; i++)
-                if (username.getText().toString().equals(login_cred[i][0]) && password.getText().toString().equals(login_cred[i][1]))
+            for (int i = 0; i < login_cred.size(); i++)
+                if (username.getText().toString().equals(login_cred.get(i).split(" ")[0]) && password.getText().toString().equals(login_cred.get(i).split(" ")[1]))
                     return true;
         }
         return false;
