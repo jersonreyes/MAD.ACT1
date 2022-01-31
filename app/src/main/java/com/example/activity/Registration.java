@@ -41,6 +41,7 @@ public class Registration extends AppCompatActivity {
     int error_ctr = 0;
     //CONTEXT PARA SA INTENT
     Context con = this;
+    ArrayList<String> login_cred = dbHandler.get().getAccounts();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -418,12 +419,37 @@ public class Registration extends AppCompatActivity {
                     "A: " + q3a.getText().toString()+"\n\n";
 
 
+            String db_insert =
+                            username.getText().toString()+","+
+                            password.getText().toString()+","+
+                            firstname.getText().toString()+","+ middlename.getText().toString()+","+lastname.getText().toString()+","+
+                            wao.getText().toString()+","+
+                             datebtn.getText()+","+
+
+                            houseno.getText().toString()+","+
+                            street.getText().toString()+","+
+                            barangay.getText().toString()+","+
+                            municipality.getText().toString()+","+
+                            province.getText().toString() +","+
+
+                            phoneno.getText().toString()+","+
+                            hobbies_selected+","+
+                            q1.getSelectedItem().toString()+","+
+                            q1a.getText().toString()+","+
+                            q2.getSelectedItem().toString()+","+
+                            q2a.getText().toString()+","+
+                            q3.getSelectedItem().toString()+","+
+                            q3a.getText().toString();
+            dbHandler.get().addAccount(db_insert);
+
             AlertDialog.Builder alert = new AlertDialog.Builder(this)
                     .setTitle("What We Received")
                     .setMessage(info)
                     .setPositiveButton("Finish", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(Registration.this,"Successful Registration",Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(con, MainActivity.class);
+                            startActivity(i);
                         }
                     });
             alert.show();
