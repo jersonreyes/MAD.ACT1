@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //SET THE CREDENTIALS READY
-
-        //USERNAME AND PASSWORD SEPARATED BY SPACES (String.split()) TO ACCESS
+        //USERNAME AND PASSWORD SEPARATED BY SPACES (String.split(" ") -> returns an array) TO ACCESS
         login_cred.add("Anna 13579abcdeA");
         login_cred.add("Lorna Th3Q41ckBr0wnF0x");
         login_cred.add("Fe p@zzW0rd");
