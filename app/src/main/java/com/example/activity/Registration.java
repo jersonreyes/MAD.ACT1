@@ -2,6 +2,7 @@ package com.example.activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
@@ -38,6 +39,8 @@ public class Registration extends AppCompatActivity {
     GradientDrawable border = new GradientDrawable();
     Spinner q1, q2, q3;
     int error_ctr = 0;
+    //CONTEXT PARA SA INTENT
+    Context con = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -446,15 +449,18 @@ public class Registration extends AppCompatActivity {
     }
 
     public void login_transfer(View view) {
-        /**AlertDialog.Builder alert = new AlertDialog.Builder(this)
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
                 .setTitle("Login")
                 .setMessage("Redirecting you to the login screen.")
-                .setPositiveButton("Okay", null)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(con, MainActivity.class);
+                        startActivity(i);
+                    }
+                })
                 .setIcon(R.drawable.person);
-        alert.show();**/
-        Intent i = new Intent(this, MainActivity.class);
-        //i.putExtra("test data", "from registration");
-        startActivity(i);
+        alert.show();
     }
 
 }

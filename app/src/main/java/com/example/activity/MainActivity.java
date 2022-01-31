@@ -2,6 +2,8 @@ package com.example.activity;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
     //ARRAYLIST FOR DYNAMIC ADDING OF VALUES
     ArrayList<String> login_cred = new ArrayList<String>();
-
+    //CONTEXT PARA SA INTENT
+    Context con = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //SET THE CREDENTIALS READY
         //USERNAME AND PASSWORD SEPARATED BY SPACES (String.split(" ") -> returns an array) TO ACCESS
         login_cred.add("Anna 13579abcdeA");
@@ -94,15 +98,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void registration_transfer(View view) {
-        /**Builder alert = new AlertDialog.Builder(this)
+        Builder alert = new AlertDialog.Builder(this)
                 .setTitle("Register")
                 .setMessage("Redirecting you to the registration screen.")
-                .setPositiveButton("Okay",null)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(con, Registration.class);
+                        startActivity(i);
+                    }
+                })
                 .setIcon(R.drawable.person);
-        alert.show();**/
-        Intent i = new Intent(this, Registration.class);
-        //i.putExtra("test data", "from login");
-        startActivity(i);
+        alert.show();
+
     }
 
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
