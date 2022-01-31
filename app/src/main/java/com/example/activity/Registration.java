@@ -3,6 +3,7 @@ package com.example.activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -445,12 +446,14 @@ public class Registration extends AppCompatActivity {
     }
 
     public void login_transfer(View view) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+        /**AlertDialog.Builder alert = new AlertDialog.Builder(this)
                 .setTitle("Login")
                 .setMessage("Redirecting you to the login screen.")
                 .setPositiveButton("Okay", null)
                 .setIcon(R.drawable.person);
-        alert.show();
+        alert.show();**/
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 }

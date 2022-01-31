@@ -2,6 +2,7 @@ package com.example.activity;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         login_ctr = findViewById(R.id.login_ctr);
         TextView welcome = findViewById(R.id.welcome);
         ImageView logo = findViewById(R.id.logo);
+
 
         Animation slide_left, slide_top, slide_bottom, fade, random;
         slide_left = AnimationUtils.loadAnimation(this, R.anim.anim_slide_left);
@@ -82,12 +84,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void registration_transfer(View view) {
-        Builder alert = new AlertDialog.Builder(this)
+        /**Builder alert = new AlertDialog.Builder(this)
                 .setTitle("Register")
                 .setMessage("Redirecting you to the registration screen.")
                 .setPositiveButton("Okay",null)
                 .setIcon(R.drawable.person);
-        alert.show();
+        alert.show();**/
+        Intent i = new Intent(this, Registration.class);
+        startActivity(i);
     }
 
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
