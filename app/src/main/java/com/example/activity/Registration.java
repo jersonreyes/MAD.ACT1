@@ -2,7 +2,9 @@ package com.example.activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +39,11 @@ public class Registration extends AppCompatActivity {
     GradientDrawable border = new GradientDrawable();
     Spinner q1, q2, q3;
     int error_ctr = 0;
+    //CONTEXT PARA SA INTENT
+    Context con = this;
+
+    //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
+    ArrayList<String> login_cred = dbHandler.get().getAccounts();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -413,6 +420,29 @@ public class Registration extends AppCompatActivity {
                     "SQ3: " + q3.getSelectedItem().toString()+"\n"+
                     "A: " + q3a.getText().toString()+"\n\n";
 
+            //NEW COMMA DELIMItED ARRAYLIST INSERT DEMo
+            String db_insert =
+                            username.getText().toString()+","+
+                            password.getText().toString()+","+
+                            firstname.getText().toString()+","+ middlename.getText().toString()+","+lastname.getText().toString()+","+
+                            wao.getText().toString()+","+
+                             datebtn.getText()+","+
+
+                            houseno.getText().toString()+","+
+                            street.getText().toString()+","+
+                            barangay.getText().toString()+","+
+                            municipality.getText().toString()+","+
+                            province.getText().toString() +","+
+
+                            phoneno.getText().toString()+","+
+                            hobbies_selected+","+
+                            q1.getSelectedItem().toString()+","+
+                            q1a.getText().toString()+","+
+                            q2.getSelectedItem().toString()+","+
+                            q2a.getText().toString()+","+
+                            q3.getSelectedItem().toString()+","+
+                            q3a.getText().toString();
+            dbHandler.get().addAccount(db_insert);
 
             AlertDialog.Builder alert = new AlertDialog.Builder(this)
                     .setTitle("What We Received")
@@ -420,6 +450,8 @@ public class Registration extends AppCompatActivity {
                     .setPositiveButton("Finish", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(Registration.this,"Successful Registration",Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(con, MainActivity.class);
+                            startActivity(i);
                         }
                     });
             alert.show();
@@ -448,7 +480,13 @@ public class Registration extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
                 .setTitle("Login")
                 .setMessage("Redirecting you to the login screen.")
-                .setPositiveButton("Okay", null)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(con, MainActivity.class);
+                        startActivity(i);
+                    }
+                })
                 .setIcon(R.drawable.person);
         alert.show();
     }

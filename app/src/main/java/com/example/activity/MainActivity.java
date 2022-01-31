@@ -2,6 +2,9 @@ package com.example.activity;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password;
     String username_string, password_string;
     boolean found = false;
-    String[][] login_cred = {{"Anna", "13579abcdeA"}, {"Lorna", "Th3Q41ckBr0wnF0x"},{"Fe", "p@zzW0rd"}};
+
+    //CONTEXT PARA SA INTENT
+    Context con = this;
+
+    //CREATE AN ARRAYLIST THAT WILL BE POPULATED BY DATA FROM THE ARRAYLIST FROM DBHANDLER SINGLETON
+    ArrayList<String> login_cred = new ArrayList<String>();
 
     //NEW CODE NEW CODE
     /*
@@ -43,7 +52,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TESTING HAHA
+
+        //RUNTIME SINGLETON IMPLEMENTATION TO MAKE DB ARRAYLIST ACCESSIBLE BY THE ENTIRE APP
+        //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
+        login_cred = dbHandler.get().getAccounts();
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("BAGONG LAMAN NG ARRAYLIST")
+                .setMessage(login_cred.toString())
+                .setPositiveButton("Okay", null);
+        alert.show();
+
         //SET STATUSBAR TO TRANSAPRENT
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_main);
@@ -55,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         login_ctr = findViewById(R.id.login_ctr);
         TextView welcome = findViewById(R.id.welcome);
         ImageView logo = findViewById(R.id.logo);
+
 
         Animation slide_left, slide_top, slide_bottom, fade, random;
         slide_left = AnimationUtils.loadAnimation(this, R.anim.anim_slide_left);
@@ -103,22 +123,31 @@ public class MainActivity extends AppCompatActivity {
         Builder alert = new AlertDialog.Builder(this)
                 .setTitle("Register")
                 .setMessage("Redirecting you to the registration screen.")
-                .setPositiveButton("Okay",null)
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(con, Registration.class);
+                        startActivity(i);
+                    }
+                })
                 .setIcon(R.drawable.person);
         alert.show();
+
     }
 
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
     public boolean verify_rec(String type) {
         if(type=="username") {
-            for (int i = 0; i < login_cred.length; i++)
-                if (username.getText().toString().equals(login_cred[i][0]))
+            for (int i = 0; i < login_cred.size(); i++)
+                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]))
                     return true;
         }   else {
-            for (int i = 0; i < login_cred.length; i++)
-                if (username.getText().toString().equals(login_cred[i][0]) && password.getText().toString().equals(login_cred[i][1]))
+            for (int i = 0; i < login_cred.size(); i++)
+                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]) && password.getText().toString().equals(login_cred.get(i).split(",")[1]))
                     return true;
         }
         return false;
     }
+
+
 }
