@@ -26,20 +26,25 @@ public class MainActivity extends AppCompatActivity {
     String username_string, password_string;
     boolean found = false;
 
-    //ARRAYLIST FOR DYNAMIC ADDING OF VALUES
-    ArrayList<String> login_cred = new ArrayList<String>();
     //CONTEXT PARA SA INTENT
     Context con = this;
+
+    //CREATE AN ARRAYLIST THAT WILL BE POPULATED BY DATA FROM THE ARRAYLIST FROM DBHANDLER SINGLETON
+    ArrayList<String> login_cred = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //SET THE CREDENTIALS READY
-        //USERNAME AND PASSWORD SEPARATED BY SPACES (String.split(" ") -> returns an array) TO ACCESS
-        login_cred.add("Anna 13579abcdeA");
-        login_cred.add("Lorna Th3Q41ckBr0wnF0x");
-        login_cred.add("Fe p@zzW0rd");
+        //RUNTIME SINGLETON IMPLEMENTATION TO MAKE DB ARRAYLIST ACCESSIBLE BY THE ENTIRE APP
+        //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
+        login_cred = dbHandler.get().getAccounts();
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("BAGONG LAMAN NG ARRAYLIST")
+                .setMessage(login_cred.toString())
+                .setPositiveButton("Okay", null);
+        alert.show();
 
         //SET STATUSBAR TO TRANSAPRENT
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -117,13 +122,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean verify_rec(String type) {
         if(type=="username") {
             for (int i = 0; i < login_cred.size(); i++)
-                if (username.getText().toString().equals(login_cred.get(i).split(" ")[0]))
+                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]))
                     return true;
         }   else {
             for (int i = 0; i < login_cred.size(); i++)
-                if (username.getText().toString().equals(login_cred.get(i).split(" ")[0]) && password.getText().toString().equals(login_cred.get(i).split(" ")[1]))
+                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]) && password.getText().toString().equals(login_cred.get(i).split(",")[1]))
                     return true;
         }
         return false;
     }
+
+
 }

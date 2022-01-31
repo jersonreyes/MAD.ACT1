@@ -41,6 +41,8 @@ public class Registration extends AppCompatActivity {
     int error_ctr = 0;
     //CONTEXT PARA SA INTENT
     Context con = this;
+
+    //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
     ArrayList<String> login_cred = dbHandler.get().getAccounts();
 
     @Override
@@ -418,7 +420,7 @@ public class Registration extends AppCompatActivity {
                     "SQ3: " + q3.getSelectedItem().toString()+"\n"+
                     "A: " + q3a.getText().toString()+"\n\n";
 
-
+            //NEW COMMA DELIMItED ARRAYLIST INSERT DEMo
             String db_insert =
                             username.getText().toString()+","+
                             password.getText().toString()+","+
