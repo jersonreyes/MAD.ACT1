@@ -23,6 +23,23 @@ public class MainActivity extends AppCompatActivity {
     boolean found = false;
     String[][] login_cred = {{"Anna", "13579abcdeA"}, {"Lorna", "Th3Q41ckBr0wnF0x"},{"Fe", "p@zzW0rd"}};
 
+    //NEW CODE NEW CODE
+    /*
+        NEW CODE
+        NEW CODENEW CODENEW CODENEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+
+        NEW CODE
+         NEW CODE
+        NEW CODENEW CODENEW CODENEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
