@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class dbHandler {
     private static dbHandler dbHandlerSingleton;
 
-    private ArrayList<String> db = new ArrayList<String>();
+    //CREATE A 2D ARRAYLIST THAT WILL BE GLOBALLY ACCESSIBLE BY GETTING THIS SINGLETON'S INSTANCE
+    public ArrayList<ArrayList<String>> db = new ArrayList<ArrayList<String>>();
 
     //RETURN SINGLETON OBJECT
     public static dbHandler get() {
@@ -18,21 +19,17 @@ public class dbHandler {
     }
 
     //PRIVATE CONSTRUCTOR
-    private dbHandler() {
-        //POPULATE HARDCODED ACCOUNTS
-        //USERNAME AND PASSWORD SEPARATED BY COMMA (String.split(",") -> returns an array) TO ACCESS
-        db.add("Anna,13579abcdeA");
-        db.add("Lorna,Th3Q41ckBr0wnF0x");
-        db.add("Fe,p@zzW0rd");
-    }
+    private dbHandler() {}
 
-    //USED TO ADD ACCOUNTS (SEMI-SETTER)
-    public void addAccount(String acc) {
-        db.add(acc);
-    }
-
-    //USED TO RETURN ACCOUNTS (GETTER)
-    public ArrayList<String> getAccounts() {
-        return db;
+    //USED FOR POPULATING HARDCODED ACCOUNTS ONLY [ARRAYLIST WILL BE FETCHED DIRECTLY]
+    public void populate(String acc) {
+        //SEPARATED BY | [ESCAPED FOR REGEX]
+        String account[] = acc.split("\\|");
+        db.add(new ArrayList<>());
+        //GET LAST INDEX
+        int last = db.size()-1;
+        db.get(last).add(account[0]);
+        db.get(last).add(account[1]);
+        db.get(last).add(account[2]);
     }
 }

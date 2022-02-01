@@ -42,8 +42,8 @@ public class Registration extends AppCompatActivity {
     //CONTEXT PARA SA INTENT
     Context con = this;
 
-    //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
-    ArrayList<String> login_cred = dbHandler.get().getAccounts();
+    //UPDATED SINGLETON IMPLEMENTATION METHOD
+    //CHECK DBHANDLER.JAVA
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -421,28 +421,29 @@ public class Registration extends AppCompatActivity {
                     "A: " + q3a.getText().toString()+"\n\n";
 
             //NEW COMMA DELIMItED ARRAYLIST INSERT DEMo
-            String db_insert =
-                            username.getText().toString()+","+
-                            password.getText().toString()+","+
-                            firstname.getText().toString()+","+ middlename.getText().toString()+","+lastname.getText().toString()+","+
-                            wao.getText().toString()+","+
-                             datebtn.getText()+","+
+            ArrayList<String> db_insert = new ArrayList<>();
 
-                            houseno.getText().toString()+","+
-                            street.getText().toString()+","+
-                            barangay.getText().toString()+","+
-                            municipality.getText().toString()+","+
-                            province.getText().toString() +","+
+            db_insert.add(username.getText().toString());
+            db_insert.add(password.getText().toString());
+            db_insert.add(firstname.getText().toString());
+            db_insert.add(middlename.getText().toString());
+            db_insert.add(lastname.getText().toString());
+            db_insert.add(wao.getText().toString());
+            db_insert.add(datebtn.getText().toString());
+            db_insert.add(houseno.getText().toString());
+            db_insert.add(street.getText().toString());
+            db_insert.add(barangay.getText().toString());
+            db_insert.add(municipality.getText().toString());
+            db_insert.add(province.getText().toString());
+            db_insert.add(phoneno.getText().toString());
+            db_insert.add(q1.getSelectedItem().toString());
+            db_insert.add(q1a.getText().toString());
+            db_insert.add(q2.getSelectedItem().toString());
+            db_insert.add(q2a.getText().toString());
+            db_insert.add(q3.getSelectedItem().toString());
+            db_insert.add(q3a.getText().toString());
 
-                            phoneno.getText().toString()+","+
-                            hobbies_selected+","+
-                            q1.getSelectedItem().toString()+","+
-                            q1a.getText().toString()+","+
-                            q2.getSelectedItem().toString()+","+
-                            q2a.getText().toString()+","+
-                            q3.getSelectedItem().toString()+","+
-                            q3a.getText().toString();
-            dbHandler.get().addAccount(db_insert);
+            dbHandler.get().db.add(db_insert);
 
             AlertDialog.Builder alert = new AlertDialog.Builder(this)
                     .setTitle("What We Received")

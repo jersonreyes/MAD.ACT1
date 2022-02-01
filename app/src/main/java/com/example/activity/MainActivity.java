@@ -29,20 +29,23 @@ public class MainActivity extends AppCompatActivity {
     //CONTEXT PARA SA INTENT
     Context con = this;
 
-    //CREATE AN ARRAYLIST THAT WILL BE POPULATED BY DATA FROM THE ARRAYLIST FROM DBHANDLER SINGLETON
-    ArrayList<String> login_cred = new ArrayList<String>();
+    // SINGLETON IMPLEMENTATION VIA dbHandler.get() GET INSTANCE | UPDATED
+    //2D ARRAYLIST IMPLEMENTATION UPDATE
+    //CHECK DBHANDLER.JAVA SINGLETON CLASS
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //RUNTIME SINGLETON IMPLEMENTATION TO MAKE DB ARRAYLIST ACCESSIBLE BY THE ENTIRE APP
-        //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
-        login_cred = dbHandler.get().getAccounts();
+        //POPULATE HARDCODED ACCOUNTS
+        //USERNAME AND PASSWORD SEPARATED BY COMMA (String.split(",") -> returns an array) TO ACCESS
+        dbHandler.get().populate("Anna|13579abcdeA|Anna Lisa");
+        dbHandler.get().populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
+        dbHandler.get().populate("Fe|p@zzW0rd|Fe Rari");
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
                 .setTitle("BAGONG LAMAN NG ARRAYLIST")
-                .setMessage(login_cred.toString())
+                .setMessage(dbHandler.get().db.toString())
                 .setPositiveButton("Okay", null);
         alert.show();
 
@@ -121,12 +124,12 @@ public class MainActivity extends AppCompatActivity {
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
     public boolean verify_rec(String type) {
         if(type=="username") {
-            for (int i = 0; i < login_cred.size(); i++)
-                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]))
-                    return true;
+            for (int i = 0; i < dbHandler.get().db.size(); i++)
+                if (username.getText().toString().equals(dbHandler.get().db.get(i).get(0)))
+                        return true;
         }   else {
-            for (int i = 0; i < login_cred.size(); i++)
-                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]) && password.getText().toString().equals(login_cred.get(i).split(",")[1]))
+            for (int i = 0; i < dbHandler.get().db.size(); i++)
+                if (verify_rec("username") && password.getText().toString().equals(dbHandler.get().db.get(i).get(1)))
                     return true;
         }
         return false;
