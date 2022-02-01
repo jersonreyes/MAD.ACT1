@@ -33,7 +33,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class Registration extends AppCompatActivity {
+public class EntryList extends AppCompatActivity {
 
     boolean dateset = false;
     GradientDrawable border = new GradientDrawable();
@@ -450,7 +450,7 @@ public class Registration extends AppCompatActivity {
                     .setMessage(info)
                     .setPositiveButton("Finish", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(Registration.this,"Successful Registration",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EntryList.this,"Successful Registration",Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(con, MainActivity.class);
                             startActivity(i);
                         }
