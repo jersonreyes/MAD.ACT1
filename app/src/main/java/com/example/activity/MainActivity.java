@@ -33,6 +33,23 @@ public class MainActivity extends AppCompatActivity {
     //2D ARRAYLIST IMPLEMENTATION UPDATE
     //CHECK DBHANDLER.JAVA SINGLETON CLASS
 
+    //NEW CODE NEW CODE
+    /*
+        NEW CODE
+        NEW CODENEW CODENEW CODENEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+
+        NEW CODE
+         NEW CODE
+        NEW CODENEW CODENEW CODENEW CODE
+        NEW CODE
+        NEW CODE
+        NEW CODE
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
