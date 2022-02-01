@@ -443,7 +443,7 @@ public class Registration extends AppCompatActivity {
             db_insert.add(q3.getSelectedItem().toString());
             db_insert.add(q3a.getText().toString());
 
-            dbHandler.get().db.add(db_insert);
+            MainActivity.db.add(db_insert);
 
             AlertDialog.Builder alert = new AlertDialog.Builder(this)
                     .setTitle("What We Received")

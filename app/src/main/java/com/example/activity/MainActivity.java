@@ -30,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
     //CONTEXT PARA SA INTENT
     Context con = this;
 
-    // SINGLETON IMPLEMENTATION VIA dbHandler.get() GET INSTANCE | UPDATED
+    public static ArrayList<ArrayList<String>> db = new ArrayList<ArrayList<String>>();
+
+    // SINGLETON IMPLEMENTATION REMOVED | MADE ARRAYLIST PUBLIC AND STATIC
     //2D ARRAYLIST IMPLEMENTATION UPDATE
-    //CHECK DBHANDLER.JAVA SINGLETON CLASS
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
         //USERNAME AND PASSWORD SEPARATED BY COMMA (String.split(",") -> returns an array) TO ACCESS
         //RUN ONLY ONCE
         if(!populated) {
-            dbHandler.get().populate("Anna|13579abcdeA|Anna Lisa");
-            dbHandler.get().populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
-            dbHandler.get().populate("Fe|p@zzW0rd|Fe Rari");
+            populate("Anna|13579abcdeA|Anna Lisa");
+            populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
+            populate("Fe|p@zzW0rd|Fe Rari");
             populated = true;
         }
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
                 .setTitle("BAGONG LAMAN NG 2D ARRAYLIST")
-                .setMessage(dbHandler.get().db.toString())
+                .setMessage(db.toString())
                 .setPositiveButton("Okay", null);
         alert.show();
 
@@ -128,15 +129,27 @@ public class MainActivity extends AppCompatActivity {
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
     public boolean verify_rec(String type) {
         if(type=="username") {
-            for (int i = 0; i < dbHandler.get().db.size(); i++)
-                if (username.getText().toString().equals(dbHandler.get().db.get(i).get(0)))
+            for (int i = 0; i < db.size(); i++)
+                if (username.getText().toString().equals(db.get(i).get(0)))
                         return true;
         }   else {
-            for (int i = 0; i < dbHandler.get().db.size(); i++)
-                if (verify_rec("username") && password.getText().toString().equals(dbHandler.get().db.get(i).get(1)))
+            for (int i = 0; i < db.size(); i++)
+                if (verify_rec("username") && password.getText().toString().equals(db.get(i).get(1)))
                     return true;
         }
         return false;
+    }
+
+    //USED FOR POPULATING HARDCODED ACCOUNTS ONLY
+    public void populate(String acc) {
+        //SEPARATED BY | [ESCAPED FOR REGEX]
+        String[] account = acc.split("\\|");
+        db.add(new ArrayList<>());
+        //GET LAST INDEX
+        int last = db.size()-1;
+        db.get(last).add(account[0]);
+        db.get(last).add(account[1]);
+        db.get(last).add(account[2]);
     }
 
 }
