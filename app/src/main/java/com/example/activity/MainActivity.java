@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password;
     String username_string, password_string;
     boolean found = false;
+    static boolean populated = false;
 
     //CONTEXT PARA SA INTENT
     Context con = this;
@@ -33,40 +34,27 @@ public class MainActivity extends AppCompatActivity {
     //2D ARRAYLIST IMPLEMENTATION UPDATE
     //CHECK DBHANDLER.JAVA SINGLETON CLASS
 
-    //NEW CODE NEW CODE
-    /*
-        NEW CODE
-        NEW CODENEW CODENEW CODENEW CODE
-        NEW CODE
-        NEW CODE
-        NEW CODE
-        NEW CODE
-
-        NEW CODE
-         NEW CODE
-        NEW CODENEW CODENEW CODENEW CODE
-        NEW CODE
-        NEW CODE
-        NEW CODE
-    */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //POPULATE HARDCODED ACCOUNTS
         //USERNAME AND PASSWORD SEPARATED BY COMMA (String.split(",") -> returns an array) TO ACCESS
-        dbHandler.get().populate("Anna|13579abcdeA|Anna Lisa");
-        dbHandler.get().populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
-        dbHandler.get().populate("Fe|p@zzW0rd|Fe Rari");
+        //RUN ONLY ONCE
+        if(!populated) {
+            dbHandler.get().populate("Anna|13579abcdeA|Anna Lisa");
+            dbHandler.get().populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
+            dbHandler.get().populate("Fe|p@zzW0rd|Fe Rari");
+            populated = true;
+        }
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setTitle("BAGONG LAMAN NG ARRAYLIST")
+                .setTitle("BAGONG LAMAN NG 2D ARRAYLIST")
                 .setMessage(dbHandler.get().db.toString())
                 .setPositiveButton("Okay", null);
         alert.show();
 
-        //SET STATUSBAR TO TRANSAPRENT
+        //SET STATUSBAR AS TRANSAPRENT
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_main);
 
@@ -77,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         login_ctr = findViewById(R.id.login_ctr);
         TextView welcome = findViewById(R.id.welcome);
         ImageView logo = findViewById(R.id.logo);
-
 
         Animation slide_left, slide_top, slide_bottom, fade, random;
         slide_left = AnimationUtils.loadAnimation(this, R.anim.anim_slide_left);
@@ -151,6 +138,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
 }
