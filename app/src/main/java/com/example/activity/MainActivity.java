@@ -30,10 +30,9 @@ public class MainActivity extends AppCompatActivity {
     //CONTEXT PARA SA INTENT
     Context con = this;
 
-    public static ArrayList<ArrayList<String>> db = new ArrayList<ArrayList<String>>();
-
     // SINGLETON IMPLEMENTATION REMOVED | MADE ARRAYLIST PUBLIC AND STATIC
     //2D ARRAYLIST IMPLEMENTATION UPDATE
+    public static ArrayList<ArrayList<String>> db = new ArrayList<ArrayList<String>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
