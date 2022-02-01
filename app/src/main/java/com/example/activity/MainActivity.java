@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //CONTEXT PARA SA INTENT
     Context con = this;
 
-    // SINGLETON IMPLEMENTATION REMOVED | MADE ARRAYLIST PUBLIC AND STATIC
+    // SINGLETON IMPLEMENTATION REMOVED | MADE ARRAYLIST PUBLIC AND STATIC | BAWAS CODE
     //2D ARRAYLIST IMPLEMENTATION UPDATE
     public static ArrayList<ArrayList<String>> db = new ArrayList<ArrayList<String>>();
 
