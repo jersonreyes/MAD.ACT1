@@ -33,7 +33,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class Registration extends AppCompatActivity {
+public class EntryList extends AppCompatActivity {
 
     boolean dateset = false;
     GradientDrawable border = new GradientDrawable();
@@ -400,25 +400,25 @@ public class Registration extends AppCompatActivity {
 
             String info =
                     "\nUsername: " + username.getText().toString()+"\n\n"+
-                    "Password: " + password.getText().toString()+"\n\n"+
-                    "Name: " + firstname.getText().toString()+" "+middlename.getText().toString()+" "+lastname.getText().toString()+"\n\n"+
-                    "Gender: " + wao.getText().toString()+"\n\n"+
-                    "Date of birth: " + datebtn.getText()+"\n\n"+
+                            "Password: " + password.getText().toString()+"\n\n"+
+                            "Name: " + firstname.getText().toString()+" "+middlename.getText().toString()+" "+lastname.getText().toString()+"\n\n"+
+                            "Gender: " + wao.getText().toString()+"\n\n"+
+                            "Date of birth: " + datebtn.getText()+"\n\n"+
 
-                    "Address: " + houseno.getText().toString()+" "+
-                    street.getText().toString()+" "+
-                    barangay.getText().toString()+", "+
-                    municipality.getText().toString()+", "+
-                    province.getText().toString() +"\n\n"+
+                            "Address: " + houseno.getText().toString()+" "+
+                            street.getText().toString()+" "+
+                            barangay.getText().toString()+", "+
+                            municipality.getText().toString()+", "+
+                            province.getText().toString() +"\n\n"+
 
-                    "Phone Number: " + phoneno.getText().toString()+"\n\n"+
-                    "Hobbies: " + hobbies_selected+"\n\n"+
-                    "SQ1: " + q1.getSelectedItem().toString()+"\n"+
-                    "A: " + q1a.getText().toString()+"\n\n"+
-                    "SQ2: " + q2.getSelectedItem().toString()+"\n"+
-                    "A: " + q2a.getText().toString()+"\n\n"+
-                    "SQ3: " + q3.getSelectedItem().toString()+"\n"+
-                    "A: " + q3a.getText().toString()+"\n\n";
+                            "Phone Number: " + phoneno.getText().toString()+"\n\n"+
+                            "Hobbies: " + hobbies_selected+"\n\n"+
+                            "SQ1: " + q1.getSelectedItem().toString()+"\n"+
+                            "A: " + q1a.getText().toString()+"\n\n"+
+                            "SQ2: " + q2.getSelectedItem().toString()+"\n"+
+                            "A: " + q2a.getText().toString()+"\n\n"+
+                            "SQ3: " + q3.getSelectedItem().toString()+"\n"+
+                            "A: " + q3a.getText().toString()+"\n\n";
 
             //NEW COMMA DELIMItED ARRAYLIST INSERT DEMo
             ArrayList<String> db_insert = new ArrayList<>();
@@ -450,7 +450,7 @@ public class Registration extends AppCompatActivity {
                     .setMessage(info)
                     .setPositiveButton("Finish", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(Registration.this,"Successful Registration",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EntryList.this,"Successful Registration",Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(con, MainActivity.class);
                             startActivity(i);
                         }

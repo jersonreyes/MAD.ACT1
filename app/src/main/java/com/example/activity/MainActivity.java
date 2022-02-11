@@ -25,45 +25,36 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password;
     String username_string, password_string;
     boolean found = false;
+    static boolean populated = false;
 
     //CONTEXT PARA SA INTENT
     Context con = this;
 
-    //CREATE AN ARRAYLIST THAT WILL BE POPULATED BY DATA FROM THE ARRAYLIST FROM DBHANDLER SINGLETON
-    ArrayList<String> login_cred = new ArrayList<String>();
-
-    //NEW CODE NEW CODE
-    /*
-        NEW CODE
-        NEW CODENEW CODENEW CODENEW CODE
-        NEW CODE
-        NEW CODE
-        NEW CODE
-        NEW CODE
-
-        NEW CODE
-         NEW CODE
-        NEW CODENEW CODENEW CODENEW CODE
-        NEW CODE
-        NEW CODE
-        NEW CODE
-    */
+    // SINGLETON IMPLEMENTATION REMOVED | MADE ARRAYLIST PUBLIC AND STATIC | BAWAS CODE
+    //2D ARRAYLIST IMPLEMENTATION UPDATE
+    public static ArrayList<ArrayList<String>> db = new ArrayList<ArrayList<String>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //RUNTIME SINGLETON IMPLEMENTATION TO MAKE DB ARRAYLIST ACCESSIBLE BY THE ENTIRE APP
-        //GET INSTANCE - POPULATE LOGIN_CRED ARRAYLIST FROM THE DATA THAT IS STORED TO THE SINGLE ARRAYLIST FROM DBHANDLER SINGLETON
-        login_cred = dbHandler.get().getAccounts();
+        //POPULATE HARDCODED ACCOUNTS
+        //USERNAME AND PASSWORD SEPARATED BY COMMA (String.split(",") -> returns an array) TO ACCESS
+        //RUN ONLY ONCE
+        if(!populated) {
+            populate("Anna|13579abcdeA|Anna Lisa");
+            populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
+            populate("Fe|p@zzW0rd|Fe Rari");
+            populated = true;
+        }
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setTitle("BAGONG LAMAN NG ARRAYLIST")
-                .setMessage(login_cred.toString())
+                .setTitle("BAGONG LAMAN NG 2D ARRAYLIST")
+                .setMessage(db.toString())
                 .setPositiveButton("Okay", null);
         alert.show();
 
-        //SET STATUSBAR TO TRANSAPRENT
+        //SET STATUSBAR AS TRANSAPRENT
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_main);
 
@@ -74,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         login_ctr = findViewById(R.id.login_ctr);
         TextView welcome = findViewById(R.id.welcome);
         ImageView logo = findViewById(R.id.logo);
-
 
         Animation slide_left, slide_top, slide_bottom, fade, random;
         slide_left = AnimationUtils.loadAnimation(this, R.anim.anim_slide_left);
@@ -138,16 +128,27 @@ public class MainActivity extends AppCompatActivity {
     //VERIFY IF USERNAME EXISTS OR VERIFY COMBINATION OF USERNAME AND PASSWORD
     public boolean verify_rec(String type) {
         if(type=="username") {
-            for (int i = 0; i < login_cred.size(); i++)
-                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]))
-                    return true;
+            for (int i = 0; i < db.size(); i++)
+                if (username.getText().toString().equals(db.get(i).get(0)))
+                        return true;
         }   else {
-            for (int i = 0; i < login_cred.size(); i++)
-                if (username.getText().toString().equals(login_cred.get(i).split(",")[0]) && password.getText().toString().equals(login_cred.get(i).split(",")[1]))
+            for (int i = 0; i < db.size(); i++)
+                if (verify_rec("username") && password.getText().toString().equals(db.get(i).get(1)))
                     return true;
         }
         return false;
     }
 
+    //USED FOR POPULATING HARDCODED ACCOUNTS ONLY
+    public void populate(String acc) {
+        //SEPARATED BY | [ESCAPED FOR REGEX]
+        String[] account = acc.split("\\|");
+        db.add(new ArrayList<>());
+        //GET LAST INDEX
+        int last = db.size()-1;
+        db.get(last).add(account[0]);
+        db.get(last).add(account[1]);
+        db.get(last).add(account[2]);
+    }
 
 }
