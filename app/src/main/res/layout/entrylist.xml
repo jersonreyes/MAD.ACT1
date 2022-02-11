@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="240sp"
         android:layout_marginTop="-100dp"
-        android:paddingTop="100dp"
+        android:paddingTop="115dp"
         android:background="@drawable/background_login"
         android:orientation="horizontal"
         android:weightSum="10"
@@ -44,6 +44,7 @@
             android:src="@drawable/logout"
             android:scaleType="fitCenter"
             android:padding="20dp"
+            android:background="#00000000"
             />
     </LinearLayout>
 
