@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             populate("Anna|13579abcdeA|Anna Lisa");
             populate("Lorna|Th3Q41ckBr0wnF0x|Lorna Dee");
             populate("Fe|p@zzW0rd|Fe Rari");
+            populate("a|a|ab cd");
             populated = true;
         }
 
@@ -98,9 +99,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void login_verify(View view)  {
         if(!TextUtils.isEmpty(username.getText().toString()) && !TextUtils.isEmpty(password.getText().toString()))
-            if(verify_rec("combination"))
+            if(verify_rec("combination")){
                 Toast.makeText(this,"Successful login",Toast.LENGTH_SHORT).show();
-            else {
+                Intent toEntryList = new Intent(this, EntryList.class);
+                startActivity(toEntryList);
+            }else {
                 Builder alert = new AlertDialog.Builder(this)
                         .setTitle("Login")
                         .setMessage("The username and password did not match our records. Try again.")
