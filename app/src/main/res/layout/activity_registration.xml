@@ -25,14 +25,13 @@
         app:srcCompat="@drawable/logo" />
 
 
-
     <ScrollView
         android:id="@+id/scrollv"
         android:layout_width="325sp"
         android:layout_height="match_parent"
         android:layout_below="@id/background"
-        android:layout_marginTop="-50dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="-50dp"
         android:scrollbars="none">
 
 
@@ -61,13 +60,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/welcome"
-                android:layout_gravity="center"
                 android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="40sp"
                 android:gravity="center"
                 android:text="Fields are required unless stated" />
 
+            <ImageView
+                android:id="@+id/profilelabel"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/detail"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/profile_template"
+
+                />
+            <Button
+                android:id="@+id/reg_pic"
+                android:layout_below="@+id/profilelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Take a picture"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                />
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
@@ -135,8 +154,8 @@
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="First Name" />
 
             <EditText
@@ -216,8 +235,8 @@
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="Gender" />
 
             <RadioGroup
@@ -251,7 +270,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView14_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -263,9 +282,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:padding="20dp"
                 android:background="@drawable/edittext_stroke_full"
                 android:onClick="dateDialog"
+                android:padding="20dp"
                 android:text="01/01/1990" />
 
 
@@ -403,9 +422,9 @@
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Phone Number" />
 
             <EditText
