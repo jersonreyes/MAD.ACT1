@@ -49,6 +49,7 @@ public class EntryList extends AppCompatActivity {
             }
         }
 
+
         ImageButton LogoutButton = (ImageButton) findViewById(R.id.LogoutButton);
         TextView UsernameLabel = (TextView) findViewById(R.id.UsernameLabel);
         UsernameLabel.setText(CurrentAccount.get(2));
@@ -60,5 +61,7 @@ public class EntryList extends AppCompatActivity {
                 startActivity(toLogIn);
             }
         });
+
+
     }
 }
