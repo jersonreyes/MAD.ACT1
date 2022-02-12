@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class EntryList extends AppCompatActivity {
     //CONTEXT PARA SA INTENT
@@ -28,7 +30,10 @@ public class EntryList extends AppCompatActivity {
 
 
     private static ArrayList<String> CurrentAccount;
-    List<EntryCards> list = new ArrayList<EntryCards>();
+
+    RecyclerView recycler;
+    RecyclerAdapter adapter;
+    static List<EntryCards> cardlist = new ArrayList<EntryCards>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,14 @@ public class EntryList extends AppCompatActivity {
             }
         });
 
+        recycler = (RecyclerView) findViewById(R.id.recycler);
+        recycler.setHasFixedSize(true);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
 
+        for(int i=1;i<=10;i++) {
+            cardlist.add(new EntryCards(i, "Test-"+String.valueOf(i), "asd", "dada"));
+        }
+        adapter = new RecyclerAdapter(this, cardlist);
+        recycler.setAdapter(adapter);
     }
 }

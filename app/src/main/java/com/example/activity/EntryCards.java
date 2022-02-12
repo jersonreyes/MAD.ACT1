@@ -1,5 +1,6 @@
 package com.example.activity;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class EntryCards {
@@ -45,5 +46,16 @@ public class EntryCards {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    private static int lastId = 0;
+    public static ArrayList<EntryCards> createCard(int numCards){
+        ArrayList<EntryCards> cards = new ArrayList<EntryCards>();
+
+        for(int i=numCards;i<=numCards;i++){
+            cards.add(new EntryCards(lastId, "Test", "test","test"));
+            lastId++;
+        }
+        return cards;
     }
 }
