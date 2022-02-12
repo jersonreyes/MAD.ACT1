@@ -48,6 +48,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
             @Override
             public void onClick(View v) {
                 EntryList.cardlist.remove(holder.getAdapterPosition());
+                EntryList.adapter=new RecyclerAdapter(con, EntryList.cardlist);
+                EntryList.recycler.setAdapter(EntryList.adapter);
             }
         });
     }

@@ -31,8 +31,8 @@ public class EntryList extends AppCompatActivity {
 
     private static ArrayList<String> CurrentAccount;
 
-    RecyclerView recycler;
-    RecyclerAdapter adapter;
+    static RecyclerView recycler;
+    static RecyclerAdapter adapter;
     static List<EntryCards> cardlist = new ArrayList<EntryCards>();
 
     @Override
