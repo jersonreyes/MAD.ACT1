@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
             if(verify_rec("combination")){
                 Toast.makeText(this,"Successful login",Toast.LENGTH_SHORT).show();
                 Intent toEntryList = new Intent(this, EntryList.class);
+                //SINCE IT'S BEEN VERIFIED, PASS ONLY THE USERNAME, AND USE THE USERNAME TO GET THE DATA ON THE ENTRYLIST.CLASS
+                toEntryList.putExtra("Username", username.getText().toString());
                 startActivity(toEntryList);
             }else {
                 Builder alert = new AlertDialog.Builder(this)
