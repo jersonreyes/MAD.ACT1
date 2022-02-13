@@ -47,25 +47,26 @@ public class EntryList extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
         //CHECK THE INTENT FOR CHANGES
-        Bundle intents = getIntent().getExtras();
+        Intent intents = getIntent();
 
         //USERNAME CHANGED = CHANGE CURRENT ACCOUNT
-        if(intents.getString("Username").length()>0){
+        if(getIntent().hasExtra("Username")){
             for(int i=1;i<=10;i++) {
                 cardlist.add(new EntryCards(i, "test", "desc", "asd", "090501", "Male",
                         "street", "12", "bar","mun","Pro","09998",
                         true, true, true, true,true,true,true,true));
             }
-            adapter = new RecyclerAdapter(this, cardlist);
-            recycler.setAdapter(adapter);
+
             for(ArrayList<String> account: MainActivity.db){
-                if(account.get(0).toString().equals(intents.getString("Username").toString())){
+                if(account.get(0).toString().equals(intents.getExtras().getString("Username").toString())){
                     CurrentAccount=account;
                     break;
                 }
             }
         }
 
+        adapter = new RecyclerAdapter(this, cardlist);
+        recycler.setAdapter(adapter);
 
         ImageButton LogoutButton = (ImageButton) findViewById(R.id.LogoutButton);
         ImageButton AddButton = (ImageButton) findViewById(R.id.AddButton);
