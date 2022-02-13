@@ -52,7 +52,7 @@ public class EntryList extends AppCompatActivity {
         //USERNAME CHANGED = CHANGE CURRENT ACCOUNT
         if(getIntent().hasExtra("Username")){
             for(int i=1;i<=10;i++) {
-                cardlist.add(new EntryCards(i, "test", "desc", "asd", "090501", "Male",
+                cardlist.add(new EntryCards(i, "test", "desc", "asd", "09/05/2001", "Male",
                         "street", "12", "bar","mun","Pro","09998",
                         true, true, true, true,true,true,true,true));
             }

@@ -82,9 +82,9 @@ public class AddEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String gender;
-                if(isMale.isChecked())
+                if(isMale.isSelected())
                     gender="Male";
-                else if (isFemale.isChecked())
+                else if (isFemale.isSelected())
                     gender="Female";
                 else
                     gender="Others";

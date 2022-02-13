@@ -44,7 +44,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
             @Override
             public void onClick(View v) {
                 Intent toEdit = new Intent(con, EditEntry.class);
+                toEdit.putExtra("Position", String.valueOf(holder.getAdapterPosition()));
                 con.startActivity(toEdit);
+
             }
         });
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {

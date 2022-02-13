@@ -4,6 +4,30 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class EntryCards {
+
+    private int ID;
+    private String Name;
+    private String Description;
+    private String Picture;
+    private String Birthdate;
+    private String Gender;
+    private String Street;
+    private String HouseNumber;
+    private String Barangay;
+    private String Municipality;
+    private String Province;
+    private String Phone;
+
+    private boolean c1;
+    private boolean c2;
+    private boolean c3;
+    private boolean c4;
+    private boolean c5;
+    private boolean c6;
+    private boolean c7;
+    private boolean c8;
+
+
     public int getID() {
         return ID;
     }
@@ -172,27 +196,7 @@ public class EntryCards {
         EntryCards.lastId = lastId;
     }
 
-    private int ID;
-    private String Name;
-    private String Description;
-    private String Picture;
-    private String Birthdate;
-    private String Gender;
-    private String Street;
-    private String HouseNumber;
-    private String Barangay;
-    private String Municipality;
-    private String Province;
-    private String Phone;
 
-    private boolean c1;
-    private boolean c2;
-    private boolean c3;
-    private boolean c4;
-    private boolean c5;
-    private boolean c6;
-    private boolean c7;
-    private boolean c8;
 
     public EntryCards(int ID, String Name, String Description, String Picture, String Birthdate, String Gender, String Street,
                       String HouseNumber,String Barangay, String Municipality, String Province, String Phone, boolean c1, boolean c2, boolean c3,

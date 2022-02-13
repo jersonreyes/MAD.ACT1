@@ -118,7 +118,7 @@
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="Remark"
-                android:inputType="textPassword"
+                android:inputType="textCapWords"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp" />
 
