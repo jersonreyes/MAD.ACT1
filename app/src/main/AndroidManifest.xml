@@ -16,6 +16,9 @@
             android:name=".EntryList"
             android:exported="true" />
         <activity
+            android:name=".EditEntry"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

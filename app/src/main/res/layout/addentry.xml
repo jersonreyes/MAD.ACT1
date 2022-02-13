@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
-    tools:context=".EditEntry">
+    android:fitsSystemWindows="false">
 
     <LinearLayout
         android:id="@+id/background"
@@ -23,7 +22,7 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:paddingLeft="0dp"
-        android:text="Edit Entry\nPage"
+        android:text="Add Entry\nPage"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -46,7 +45,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/entryNameLabel"
+                android:id="@+id/addEntryNameLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/logo"
@@ -70,10 +69,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="40sp"
                 android:gravity="center"
-                android:text="Edit the details of this Entry" />
+                android:text="Add the details of this Entry" />
 
             <ImageView
-                android:id="@+id/entryProfileLabel"
+                android:id="@+id/addEntryProfileLabel"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
@@ -84,7 +83,7 @@
                 />
 
             <Button
-                android:id="@+id/editProfileBtn"
+                android:id="@+id/addProfileBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -93,7 +92,7 @@
 
 
             <EditText
-                android:id="@+id/entryEditName"
+                android:id="@+id/entryAddName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -107,7 +106,7 @@
                 android:paddingBottom="20dp" />
 
             <EditText
-                android:id="@+id/entryEditRemark"
+                android:id="@+id/entryAddRemark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/email"
@@ -148,28 +147,28 @@
                 android:text="Gender" />
 
             <RadioGroup
-                android:id="@+id/entryEditGender"
+                android:id="@+id/entryAddGender"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/male"
+                    android:id="@+id/addEntrymale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Male" />
 
                 <RadioButton
-                    android:id="@+id/female"
+                    android:id="@+id/addEntryfemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Female" />
 
                 <RadioButton
-                    android:id="@+id/others"
+                    android:id="@+id/addEntryothers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -191,7 +190,7 @@
                     android:text="Street" />
 
                 <EditText
-                    android:id="@+id/editEntryStreet"
+                    android:id="@+id/addEntryStreet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -211,7 +210,7 @@
                     android:text="House Number" />
 
                 <EditText
-                    android:id="@+id/editEntryHouseNumber"
+                    android:id="@+id/addEntryHouseNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp"
@@ -245,7 +244,7 @@
                             android:text="Barangay" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/editEntryBarangay"
+                            android:id="@+id/addEntryBarangay"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edittext_stroke"
@@ -270,7 +269,7 @@
                             android:text="Municipality" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/editEntryMunicipality"
+                            android:id="@+id/addEntryMunicipality"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edittext_stroke"
@@ -295,7 +294,7 @@
                             android:text="Province" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/editEntryProvince"
+                            android:id="@+id/addEntryProvince"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edittext_stroke"
@@ -318,7 +317,7 @@
                 android:text="Phone Number" />
 
             <EditText
-                android:id="@+id/editEntryNumber"
+                android:id="@+id/addEntryNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -327,7 +326,6 @@
                 android:drawablePadding="20dp"
                 android:ems="10"
                 android:hint="0942-215-1251"
-
                 android:inputType="number"
                 android:maxLength="11"
                 android:paddingTop="20dp"
@@ -342,13 +340,13 @@
                 android:text="Select Hobbies" />
 
             <RelativeLayout
-                android:id="@+id/editEntryHobbies"
+                android:id="@+id/addEntryHobbies"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="30dp">
 
                 <CheckBox
-                    android:id="@+id/editEntrych1"
+                    android:id="@+id/addEntrych1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -359,12 +357,12 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych2"
+                    android:id="@+id/addEntrych2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@+id/editEntrych1"
+                    android:layout_toRightOf="@+id/addEntrych1"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="20dp"
@@ -372,10 +370,10 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych3"
+                    android:id="@+id/addEntrych3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/editEntrych2"
+                    android:layout_toRightOf="@+id/addEntrych2"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="20dp"
@@ -383,10 +381,10 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych4"
+                    android:id="@+id/addEntrych4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych1"
+                    android:layout_below="@+id/addEntrych1"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
@@ -395,13 +393,13 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych5"
+                    android:id="@+id/addEntrych5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych1"
+                    android:layout_below="@+id/addEntrych1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@+id/editEntrych4"
+                    android:layout_toRightOf="@+id/addEntrych4"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="15dp"
@@ -412,8 +410,8 @@
                     android:id="@+id/editEntrych6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych1"
-                    android:layout_toRightOf="@+id/editEntrych5"
+                    android:layout_below="@+id/addEntrych1"
+                    android:layout_toRightOf="@+id/addEntrych5"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="15dp"
@@ -421,10 +419,10 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych7"
+                    android:id="@+id/addEntrych7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych4"
+                    android:layout_below="@+id/addEntrych4"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
@@ -433,13 +431,13 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych8"
+                    android:id="@+id/addEntrych8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych4"
+                    android:layout_below="@+id/addEntrych4"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@+id/editEntrych7"
+                    android:layout_toRightOf="@+id/addEntrych7"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="15dp"
@@ -447,11 +445,11 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych9"
+                    android:id="@+id/addEntrych9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych4"
-                    android:layout_toRightOf="@+id/editEntrych8"
+                    android:layout_below="@+id/addEntrych4"
+                    android:layout_toRightOf="@+id/addEntrych8"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="15dp"
@@ -459,10 +457,10 @@
                     android:textColor="@color/black" />
 
                 <CheckBox
-                    android:id="@+id/editEntrych10"
+                    android:id="@+id/addEntrych10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/editEntrych7"
+                    android:layout_below="@+id/addEntrych7"
                     android:background="@drawable/rounded_corner_checkbox"
                     android:buttonTint="@color/black"
                     android:paddingRight="15dp"
@@ -473,7 +471,7 @@
 
 
             <Button
-                android:id="@+id/editEntrySave"
+                android:id="@+id/addEntrySave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -484,7 +482,7 @@
                 android:textColor="@color/white" />
 
             <Button
-                android:id="@+id/editEntryCancel"
+                android:id="@+id/addEntryCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

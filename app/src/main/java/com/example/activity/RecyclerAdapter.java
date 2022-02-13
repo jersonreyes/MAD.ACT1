@@ -1,11 +1,13 @@
 package com.example.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +43,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(con, "Position - " + String.valueOf(holder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
+                Intent toEdit = new Intent(con, EditEntry.class);
+                con.startActivity(toEdit);
             }
         });
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -62,8 +65,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
 
         TextView cardTitle;
         TextView cardDesc;
-        Button editBtn;
-        Button deleteBtn;
+        ImageButton editBtn;
+        ImageButton deleteBtn;
         public CardView(@NonNull View itemView) {
             super(itemView);
             cardTitle = itemView.findViewById(R.id.cardTitle);

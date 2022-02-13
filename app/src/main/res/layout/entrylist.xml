@@ -32,12 +32,24 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="8"
+            android:layout_weight="7"
             android:gravity="center_vertical"
             android:lineHeight="37dp"
             android:text="Anna Lisa"
             android:textColor="@color/white"
             android:textSize="25sp" />
+        <ImageButton
+            android:id="@+id/AddButton"
+            android:layout_width="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/addicon"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
+            android:background="#00000000"
+            />
         <ImageButton
             android:id="@+id/LogoutButton"
             android:layout_width="50dp"

@@ -41,11 +41,23 @@ public class EntryList extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.entrylist);
 
+
+        recycler = (RecyclerView) findViewById(R.id.recycler);
+        recycler.setHasFixedSize(true);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+
         //CHECK THE INTENT FOR CHANGES
         Bundle intents = getIntent().getExtras();
 
         //USERNAME CHANGED = CHANGE CURRENT ACCOUNT
         if(intents.getString("Username").length()>0){
+            for(int i=1;i<=10;i++) {
+                cardlist.add(new EntryCards(i, "test", "desc", "asd", "090501", "Male",
+                        "street", "12", "bar","mun","Pro","09998",
+                        true, true, true, true,true,true,true,true));
+            }
+            adapter = new RecyclerAdapter(this, cardlist);
+            recycler.setAdapter(adapter);
             for(ArrayList<String> account: MainActivity.db){
                 if(account.get(0).toString().equals(intents.getString("Username").toString())){
                     CurrentAccount=account;
@@ -56,6 +68,7 @@ public class EntryList extends AppCompatActivity {
 
 
         ImageButton LogoutButton = (ImageButton) findViewById(R.id.LogoutButton);
+        ImageButton AddButton = (ImageButton) findViewById(R.id.AddButton);
         TextView UsernameLabel = (TextView) findViewById(R.id.UsernameLabel);
         UsernameLabel.setText(CurrentAccount.get(2));
         LogoutButton.setOnClickListener(new View.OnClickListener() {
@@ -66,15 +79,16 @@ public class EntryList extends AppCompatActivity {
                 startActivity(toLogIn);
             }
         });
+        AddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toAdd = new Intent(con, AddEntry.class);
+                startActivity(toAdd);
+            }
+        });
+    }
 
-        recycler = (RecyclerView) findViewById(R.id.recycler);
-        recycler.setHasFixedSize(true);
-        recycler.setLayoutManager(new LinearLayoutManager(this));
+    public void addCard(){
 
-        for(int i=1;i<=10;i++) {
-            cardlist.add(new EntryCards(i, "Test-"+String.valueOf(i), "asd", "dada"));
-        }
-        adapter = new RecyclerAdapter(this, cardlist);
-        recycler.setAdapter(adapter);
     }
 }
