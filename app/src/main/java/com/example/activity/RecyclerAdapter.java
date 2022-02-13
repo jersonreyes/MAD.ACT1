@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardView>{
 
@@ -35,13 +36,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
         View view = inflater.inflate(R.layout.card, null);
         return new CardView(view);
     }
-
+    public void clickedFields(CardView holder){
+        Intent toView = new Intent(con, ViewEntry.class);
+        toView.putExtra("Position", String.valueOf(holder.getAdapterPosition()));
+        con.startActivity(toView);
+    };
     @Override
     public void onBindViewHolder(@NonNull CardView holder, int position) {
         EntryCards card = cardList.get(position);
         holder.cardImage.setImageResource(card.getPicture());
         holder.cardTitle.setText(card.getName());
         holder.cardDesc.setText(card.getDescription());
+        holder.cardImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedFields(holder);
+            }
+        });
+
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

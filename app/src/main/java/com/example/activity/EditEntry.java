@@ -79,6 +79,8 @@ public class EditEntry extends AppCompatActivity {
         CheckBox c6 = (CheckBox) findViewById(R.id.editEntrych6);
         CheckBox c7 = (CheckBox) findViewById(R.id.editEntrych7);
         CheckBox c8 = (CheckBox) findViewById(R.id.editEntrych8);
+        CheckBox c9 = (CheckBox) findViewById(R.id.editEntrych9);
+        CheckBox c10 = (CheckBox) findViewById(R.id.editEntrych10);
 
         Button Save = (Button) findViewById(R.id.editEntrySave);
         Button Cancel = (Button) findViewById(R.id.editEntryCancel);
@@ -122,6 +124,10 @@ public class EditEntry extends AppCompatActivity {
             c7.setChecked(true);
         if(EntryList.cardlist.get(key).isC8())
             c8.setChecked(true);
+        if(EntryList.cardlist.get(key).isC9())
+            c9.setChecked(true);
+        if(EntryList.cardlist.get(key).isC10())
+            c10.setChecked(true);
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,7 +159,8 @@ public class EditEntry extends AppCompatActivity {
                 EntryList.cardlist.get(key).setC6(c6.isChecked());
                 EntryList.cardlist.get(key).setC7(c7.isChecked());
                 EntryList.cardlist.get(key).setC8(c8.isChecked());
-
+                EntryList.cardlist.get(key).setC9(c9.isChecked());
+                EntryList.cardlist.get(key).setC10(c10.isChecked());
                 Intent toEntryList = new Intent(con, EntryList.class);
                 startActivity(toEntryList);
             }

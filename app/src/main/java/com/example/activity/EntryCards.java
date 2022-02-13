@@ -26,6 +26,8 @@ public class EntryCards {
     private boolean c6;
     private boolean c7;
     private boolean c8;
+    private boolean c9;
+    private boolean c10;
 
 
     public int getID() {
@@ -188,6 +190,22 @@ public class EntryCards {
         this.c8 = c8;
     }
 
+    public boolean isC9() {
+        return c9;
+    }
+
+    public void setC9(boolean c9) {
+        this.c9 = c9;
+    }
+
+    public boolean isC10() {
+        return c10;
+    }
+
+    public void setC10(boolean c10) {
+        this.c10 = c10;
+    }
+
     public static int getLastId() {
         return lastId;
     }
@@ -200,7 +218,7 @@ public class EntryCards {
 
     public EntryCards(int ID, String Name, String Description, int Picture, String Birthdate, String Gender, String Street,
                       String HouseNumber,String Barangay, String Municipality, String Province, String Phone, boolean c1, boolean c2, boolean c3,
-                      boolean c4, boolean c5, boolean c6, boolean c7, boolean c8){
+                      boolean c4, boolean c5, boolean c6, boolean c7, boolean c8, boolean c9, boolean c10){
         this.ID=ID;
         this.Name=Name;
         this.Description=Description;
@@ -221,6 +239,8 @@ public class EntryCards {
         this.c6=c6;
         this.c7=c7;
         this.c8=c8;
+        this.c9=c9;
+        this.c10=c10;
     }
 
 

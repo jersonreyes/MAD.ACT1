@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="5dp"
-    android:background="#d4d4d4">
+    android:background="#d4d4d4"
+    >
 
     <ImageView
         android:id="@+id/cardImage"
@@ -33,13 +34,12 @@
         android:layout_below="@+id/cardTitle"
         android:layout_toRightOf="@+id/cardImage"
         android:id="@+id/cardDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="20sp"
-        android:text="Card Title"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:text="Card Desc"
         android:clickable="true"
         android:textColor="@color/black"
-        android:textStyle="italic"
-        android:lineHeight="50sp" />
+        android:textStyle="italic" />
     <ImageButton
         android:id="@+id/deleteEntry"
         android:src="@drawable/deleteicon"

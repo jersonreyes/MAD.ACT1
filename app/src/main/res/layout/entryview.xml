@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    tools:context=".EntryList"
+   >
+
+    <LinearLayout
+        android:id="@+id/EntryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="240sp"
+        android:layout_marginTop="-100dp"
+        android:background="@drawable/background_login"
+        android:orientation="horizontal"
+        android:paddingTop="115dp"
+        android:translationZ="90dp"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/UsernameLabel"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:lineHeight="37dp"
+            android:text="Entry Page"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/viewBackButton"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:padding="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/backicon" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollv2"
+        android:layout_width="325sp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/EntryHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-50dp"
+        android:scrollbars="none">
+
+
+        <RelativeLayout
+            android:layout_width="325sp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/viewProfile"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/profile_template" />
+
+            <TextView
+                android:id="@+id/viewNameLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewProfile"
+                android:layout_marginTop="30dp"
+                android:text="Name:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewProfile"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@+id/viewNameLabel"
+                android:text="Test Name here"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/viewRemarksLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewName"
+                android:layout_marginTop="30dp"
+                android:text="Remarks:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewRemarks"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/viewRemarksLabel"
+                android:layout_toRightOf="@+id/viewRemarksLabel"
+                android:text="Test Remark here"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/viewGenderLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewRemarks"
+                android:layout_marginTop="30dp"
+                android:text="Gender:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewGender"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/viewGenderLabel"
+                android:layout_toRightOf="@+id/viewGenderLabel"
+                android:text="Male"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/viewPhoneLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewGender"
+                android:layout_marginTop="30dp"
+                android:text="Phone:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewPhone"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/viewPhoneLabel"
+                android:layout_toRightOf="@+id/viewPhoneLabel"
+                android:text=""
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/viewBirthdateLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewPhone"
+                android:layout_marginTop="30dp"
+                android:text="Birthdate:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewBirthdate"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/viewBirthdateLabel"
+                android:layout_toRightOf="@+id/viewBirthdateLabel"
+                android:text=""
+                android:textSize="20sp" />
+
+
+
+            <TextView
+                android:id="@+id/viewStreetLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewBirthdate"
+                android:layout_marginTop="30dp"
+                android:text="Address:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewStreet"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/viewStreetLabel"
+                android:layout_toRightOf="@+id/viewStreetLabel"
+                android:text=""
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/viewHobbiesLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewStreet"
+                android:layout_marginTop="30dp"
+                android:text="Hobbies:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/viewHobbies"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/viewHobbiesLabel"
+                android:layout_toRightOf="@+id/viewHobbiesLabel"
+                android:text=""
+                android:textSize="20sp"
+                android:layout_marginBottom="50dp"/>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

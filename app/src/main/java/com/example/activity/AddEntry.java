@@ -74,6 +74,8 @@ public class AddEntry extends AppCompatActivity {
         CheckBox c6 = (CheckBox) findViewById(R.id.addEntrych6);
         CheckBox c7 = (CheckBox) findViewById(R.id.addEntrych7);
         CheckBox c8 = (CheckBox) findViewById(R.id.addEntrych8);
+        CheckBox c9 = (CheckBox) findViewById(R.id.addEntrych9);
+        CheckBox c10 = (CheckBox) findViewById(R.id.addEntrych10);
 
         Button Add = (Button) findViewById(R.id.addEntrySave);
         Button Cancel = (Button) findViewById(R.id.addEntryCancel);
@@ -93,7 +95,7 @@ public class AddEntry extends AppCompatActivity {
                         View.generateViewId(),
                         name.getText().toString(),
                         remark.getText().toString(),
-                        1,
+                        R.drawable.profile_template,
                         datebtn.getText().toString(),
                         gender,
                         Street.getText().toString(),
@@ -109,7 +111,9 @@ public class AddEntry extends AppCompatActivity {
                         c5.isChecked(),
                         c6.isChecked(),
                         c7.isChecked(),
-                        c8.isChecked()
+                        c8.isChecked(),
+                        c9.isChecked(),
+                        c10.isChecked()
                 ));
 
                 Intent toEntryList = new Intent(con, EntryList.class);

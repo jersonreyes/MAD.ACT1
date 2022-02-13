@@ -86,36 +86,36 @@ public class EntryList extends AppCompatActivity {
     }
 
     public void Prepopulate(){
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat1, "09/05/2001", "Male",
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "hi :)", R.drawable.cat1, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat2, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Skyflakes", "ngiti daw ako sabi ni mommy", R.drawable.cat2, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat3, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Chocnut", "I know exactly where u are", R.drawable.cat3, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat4, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Mikmik", "Bleugh", R.drawable.cat4, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat5, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Creamer", ">.>", R.drawable.cat5, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat6, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Cookie", ":)", R.drawable.cat6, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat7, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Choco", "gulat yarn", R.drawable.cat7, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat8, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Lala", "I believe I can flyyy", R.drawable.cat8, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat9, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Nestle", "Meow", R.drawable.cat9, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
-        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat10, "09/05/2001", "Male",
+                true, true, true, true,true,true,true,true,true, true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Jin", "chill", R.drawable.cat10, "09/05/2001", "Male",
                 "street", "12", "bar","mun","Pro","09998",
-                true, true, true, true,true,true,true,true));
+                true, true, true, true,true,true,true,true,true, true));
     }
     public void addCard(){
 
