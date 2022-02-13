@@ -51,12 +51,7 @@ public class EntryList extends AppCompatActivity {
 
         //USERNAME CHANGED = CHANGE CURRENT ACCOUNT
         if(getIntent().hasExtra("Username")){
-            for(int i=1;i<=10;i++) {
-                cardlist.add(new EntryCards(i, "test", "desc", "asd", "09/05/2001", "Male",
-                        "street", "12", "bar","mun","Pro","09998",
-                        true, true, true, true,true,true,true,true));
-            }
-
+            Prepopulate();
             for(ArrayList<String> account: MainActivity.db){
                 if(account.get(0).toString().equals(intents.getExtras().getString("Username").toString())){
                     CurrentAccount=account;
@@ -76,6 +71,7 @@ public class EntryList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CurrentAccount = null;
+                cardlist = null;
                 Intent toLogIn = new Intent(con, MainActivity.class);
                 startActivity(toLogIn);
             }
@@ -89,6 +85,38 @@ public class EntryList extends AppCompatActivity {
         });
     }
 
+    public void Prepopulate(){
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat1, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat2, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat3, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat4, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat5, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat6, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat7, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat8, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat9, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+        cardlist.add(new EntryCards(View.generateViewId(), "Beluga", "no", R.drawable.cat10, "09/05/2001", "Male",
+                "street", "12", "bar","mun","Pro","09998",
+                true, true, true, true,true,true,true,true));
+    }
     public void addCard(){
 
     }

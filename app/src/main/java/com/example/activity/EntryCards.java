@@ -8,7 +8,7 @@ public class EntryCards {
     private int ID;
     private String Name;
     private String Description;
-    private String Picture;
+    private int Picture;
     private String Birthdate;
     private String Gender;
     private String Street;
@@ -52,11 +52,11 @@ public class EntryCards {
         Description = description;
     }
 
-    public String getPicture() {
+    public int getPicture() {
         return Picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(int picture) {
         Picture = picture;
     }
 
@@ -198,7 +198,7 @@ public class EntryCards {
 
 
 
-    public EntryCards(int ID, String Name, String Description, String Picture, String Birthdate, String Gender, String Street,
+    public EntryCards(int ID, String Name, String Description, int Picture, String Birthdate, String Gender, String Street,
                       String HouseNumber,String Barangay, String Municipality, String Province, String Phone, boolean c1, boolean c2, boolean c3,
                       boolean c4, boolean c5, boolean c6, boolean c7, boolean c8){
         this.ID=ID;
@@ -226,10 +226,5 @@ public class EntryCards {
 
 
     private static int lastId = 0;
-    public static ArrayList<EntryCards> createCard(int numCards){
-        ArrayList<EntryCards> cards = new ArrayList<EntryCards>();
 
-
-        return cards;
-    }
 }

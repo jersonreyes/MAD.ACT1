@@ -6,12 +6,13 @@
     android:background="#d4d4d4">
 
     <ImageView
-        android:layout_marginTop="10dp"
         android:id="@+id/cardImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="5dp"
-        android:src="@drawable/profile_template"/>
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:src="@drawable/profile_template" />
 
     <TextView
         android:id="@+id/cardTitle"
@@ -22,6 +23,7 @@
         android:layout_toRightOf="@+id/cardImage"
         android:text="Card Title"
         android:textColor="@color/black"
+        android:clickable="true"
         android:textSize="15sp"
         android:textStyle="bold" />
 
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="20sp"
         android:text="Card Title"
+        android:clickable="true"
         android:textColor="@color/black"
         android:textStyle="italic"
         android:lineHeight="50sp" />
@@ -43,13 +46,17 @@
         android:layout_alignParentRight="true"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="#00000000"/>
+
     <ImageButton
         android:id="@+id/editEntry"
-        android:layout_toLeftOf="@+id/deleteEntry"
-        android:src="@drawable/editicon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/deleteEntry"
+        android:src="@drawable/editicon"
+        android:background="#00000000"/>
 
 </RelativeLayout>

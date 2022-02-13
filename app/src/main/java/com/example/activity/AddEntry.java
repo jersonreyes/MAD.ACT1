@@ -82,9 +82,9 @@ public class AddEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String gender;
-                if(isMale.isSelected())
+                if(isMale.isChecked())
                     gender="Male";
-                else if (isFemale.isSelected())
+                else if (isFemale.isChecked())
                     gender="Female";
                 else
                     gender="Others";
@@ -93,7 +93,7 @@ public class AddEntry extends AppCompatActivity {
                         View.generateViewId(),
                         name.getText().toString(),
                         remark.getText().toString(),
-                        "x",
+                        1,
                         datebtn.getText().toString(),
                         gender,
                         Street.getText().toString(),
@@ -108,7 +108,7 @@ public class AddEntry extends AppCompatActivity {
                         c4.isChecked(),
                         c5.isChecked(),
                         c6.isChecked(),
-                        c1.isChecked(),
+                        c7.isChecked(),
                         c8.isChecked()
                 ));
 

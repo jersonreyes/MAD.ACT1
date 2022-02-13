@@ -93,11 +93,11 @@ public class EditEntry extends AppCompatActivity {
         year=Integer.parseInt(dates[2]);
 
         if(EntryList.cardlist.get(key).getGender()=="Male")
-            isMale.setSelected(true);
+            isMale.setChecked(true);
         else if(EntryList.cardlist.get(key).getGender()=="Female")
-            isFemale.setSelected(true);
+            isFemale.setChecked(true);
         else if(EntryList.cardlist.get(key).getGender()=="Others")
-            isOthers.setSelected(true);
+            isOthers.setChecked(true);
 
         Street.setText(EntryList.cardlist.get(key).getStreet());
         HouseNumber.setText(EntryList.cardlist.get(key).getHouseNumber());
@@ -127,9 +127,9 @@ public class EditEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String gender;
-                if(isMale.isSelected())
+                if(isMale.isChecked())
                     gender="Male";
-                else if (isFemale.isSelected())
+                else if (isFemale.isChecked())
                     gender="Female";
                 else
                     gender="Others";

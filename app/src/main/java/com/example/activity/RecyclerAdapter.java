@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
     @Override
     public void onBindViewHolder(@NonNull CardView holder, int position) {
         EntryCards card = cardList.get(position);
+        holder.cardImage.setImageResource(card.getPicture());
         holder.cardTitle.setText(card.getName());
         holder.cardDesc.setText(card.getDescription());
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
@@ -64,13 +66,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
     }
 
     class CardView extends RecyclerView.ViewHolder{
-
+        ImageView cardImage;
         TextView cardTitle;
         TextView cardDesc;
         ImageButton editBtn;
         ImageButton deleteBtn;
         public CardView(@NonNull View itemView) {
             super(itemView);
+            cardImage = itemView.findViewById(R.id.cardImage);
             cardTitle = itemView.findViewById(R.id.cardTitle);
             cardDesc = itemView.findViewById(R.id.cardDescription);
             editBtn = itemView.findViewById(R.id.editEntry);
