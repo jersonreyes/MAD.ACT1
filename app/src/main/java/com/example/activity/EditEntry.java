@@ -62,12 +62,7 @@ public class EditEntry extends AppCompatActivity {
         RadioButton isFemale = (RadioButton) findViewById(R.id.female);
         RadioButton isOthers = (RadioButton) findViewById(R.id.others);
 
-        EditText Street = (EditText) findViewById(R.id.editEntryStreet);
-        EditText HouseNumber = (EditText) findViewById(R.id.editEntryHouseNumber);
-
-        AutoCompleteTextView Barangay = (AutoCompleteTextView) findViewById(R.id.editEntryBarangay);
-        AutoCompleteTextView Municipality = (AutoCompleteTextView) findViewById(R.id.editEntryMunicipality);
-        AutoCompleteTextView Province = (AutoCompleteTextView) findViewById(R.id.editEntryProvince);
+        EditText Address = (EditText) findViewById(R.id.editEntryAddress);
 
         EditText Phone = (EditText) findViewById(R.id.editEntryNumber);
 
@@ -81,6 +76,8 @@ public class EditEntry extends AppCompatActivity {
         CheckBox c8 = (CheckBox) findViewById(R.id.editEntrych8);
         CheckBox c9 = (CheckBox) findViewById(R.id.editEntrych9);
         CheckBox c10 = (CheckBox) findViewById(R.id.editEntrych10);
+
+        EditText OtherInfo = (EditText) findViewById(R.id.editEntryOtherInfo);
 
         Button Save = (Button) findViewById(R.id.editEntrySave);
         Button Cancel = (Button) findViewById(R.id.editEntryCancel);
@@ -101,11 +98,7 @@ public class EditEntry extends AppCompatActivity {
         else if(EntryList.cardlist.get(key).getGender()=="Others")
             isOthers.setChecked(true);
 
-        Street.setText(EntryList.cardlist.get(key).getStreet());
-        HouseNumber.setText(EntryList.cardlist.get(key).getHouseNumber());
-        Barangay.setText(EntryList.cardlist.get(key).getBarangay());
-        Municipality.setText(EntryList.cardlist.get(key).getMunicipality());
-        Province.setText(EntryList.cardlist.get(key).getProvince());
+        Address.setText(EntryList.cardlist.get(key).getAddress());
         Phone.setText(EntryList.cardlist.get(key).getPhone());
 
         if(EntryList.cardlist.get(key).isC1())
@@ -128,6 +121,7 @@ public class EditEntry extends AppCompatActivity {
             c9.setChecked(true);
         if(EntryList.cardlist.get(key).isC10())
             c10.setChecked(true);
+        OtherInfo.setText(EntryList.cardlist.get(key).getOtherInfo());
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,11 +139,7 @@ public class EditEntry extends AppCompatActivity {
                 EntryList.cardlist.get(key).setDescription(remark.getText().toString());
                 EntryList.cardlist.get(key).setBirthdate(datebtn.getText().toString());
                 EntryList.cardlist.get(key).setGender(gender);
-                EntryList.cardlist.get(key).setStreet(Street.getText().toString());
-                EntryList.cardlist.get(key).setHouseNumber(HouseNumber.getText().toString());
-                EntryList.cardlist.get(key).setBarangay(Barangay.getText().toString());
-                EntryList.cardlist.get(key).setMunicipality(Municipality.getText().toString());
-                EntryList.cardlist.get(key).setProvince(Province.getText().toString());
+                EntryList.cardlist.get(key).setAddress(Address.getText().toString());
                 EntryList.cardlist.get(key).setPhone(Phone.getText().toString());
                 EntryList.cardlist.get(key).setC1(c1.isChecked());
                 EntryList.cardlist.get(key).setC2(c2.isChecked());
@@ -161,6 +151,7 @@ public class EditEntry extends AppCompatActivity {
                 EntryList.cardlist.get(key).setC8(c8.isChecked());
                 EntryList.cardlist.get(key).setC9(c9.isChecked());
                 EntryList.cardlist.get(key).setC10(c10.isChecked());
+                EntryList.cardlist.get(key).setOtherInfo(OtherInfo.getText().toString());
                 Intent toEntryList = new Intent(con, EntryList.class);
                 startActivity(toEntryList);
             }

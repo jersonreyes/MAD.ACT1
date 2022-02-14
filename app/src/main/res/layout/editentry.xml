@@ -11,7 +11,7 @@
         android:id="@+id/background"
         android:layout_width="wrap_content"
         android:layout_height="240sp"
-        android:layout_marginTop="-100dp"
+        android:layout_marginTop="-80dp"
         android:translationZ="90dp"
         android:background="@drawable/background_login"
         android:orientation="vertical" />
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:paddingLeft="0dp"
         android:text="Edit Entry\nPage"
@@ -174,10 +174,10 @@
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Street" />
+                    android:text="Address" />
 
                 <EditText
-                    android:id="@+id/editEntryStreet"
+                    android:id="@+id/editEntryAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -185,114 +185,10 @@
                     android:drawableLeft="@drawable/location"
                     android:drawablePadding="20dp"
                     android:ems="10"
-                    android:hint="Maria Cristina St."
+                    android:hint="Malolos, Bulacan"
                     android:inputType="textCapWords"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp" />
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="House Number" />
-
-                <EditText
-                    android:id="@+id/editEntryHouseNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    android:background="@drawable/edittext_stroke"
-                    android:drawableLeft="@drawable/house"
-                    android:drawablePadding="20dp"
-                    android:ems="10"
-                    android:hint="01 Carola"
-                    android:inputType="textCapWords"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="35dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="98dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:inputType="textCapWords"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView17"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Barangay" />
-
-                        <AutoCompleteTextView
-                            android:id="@+id/editEntryBarangay"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/edittext_stroke"
-                            android:hint="Caniogan"
-                            android:inputType="textCapWords"
-                            android:paddingTop="20dp"
-                            android:paddingBottom="20dp"
-                            android:text="" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="104dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Municipality" />
-
-                        <AutoCompleteTextView
-                            android:id="@+id/editEntryMunicipality"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/edittext_stroke"
-                            android:hint="Calumpit"
-                            android:inputType="textCapWords"
-                            android:paddingTop="20dp"
-                            android:paddingBottom="20dp"
-                            android:text="" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|center"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView16"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Province" />
-
-                        <AutoCompleteTextView
-                            android:id="@+id/editEntryProvince"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/edittext_stroke"
-                            android:drawablePadding="20dp"
-                            android:hint="Bulacan"
-                            android:inputType="textCapWords"
-                            android:paddingTop="20dp"
-                            android:paddingBottom="20dp"
-                            android:text="" />
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
 
 
@@ -457,6 +353,33 @@
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView14___"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Other Informations" />
+
+                <EditText
+                    android:id="@+id/editEntryOtherInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/edittext_stroke"
+                    android:drawableLeft="@drawable/others"
+                    android:drawablePadding="20dp"
+                    android:ems="10"
+                    android:hint="Not required"
+                    android:inputType="textCapWords"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/editEntrySave"

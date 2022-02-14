@@ -48,6 +48,7 @@ public class ViewEntry extends AppCompatActivity {
         TextView Birthdate = (TextView) findViewById(R.id.viewBirthdate);
         TextView Address = (TextView) findViewById(R.id.viewStreet);
         TextView Hobbies = (TextView) findViewById(R.id.viewHobbies);
+        TextView OtherInfo = (TextView) findViewById(R.id.viewOtherInfo);
 
         Profile.setImageResource(acc.getPicture());
         Name.setText(acc.getName());
@@ -55,8 +56,7 @@ public class ViewEntry extends AppCompatActivity {
         Gender.setText(acc.getGender());
         Phone.setText(acc.getPhone());
         Birthdate.setText(acc.getBirthdate());
-        Address.setText(acc.getStreet() + " " + acc.getHouseNumber() + " " + acc.getBarangay() + ", "
-                        + acc.getMunicipality() + ", " + acc.getProvince());
+        Address.setText(acc.getAddress());
         String hobbies="";
         if(acc.isC1())
             hobbies+="\nSinging";
@@ -78,8 +78,9 @@ public class ViewEntry extends AppCompatActivity {
             hobbies+="\nWriting";
         if(acc.isC10())
             hobbies+="\nCooking";
-
+        if(hobbies.length()>2)
         Hobbies.setText(hobbies.substring(1));
+        OtherInfo.setText(acc.getOtherInfo());
     }
 
 

@@ -1,8 +1,5 @@
 package com.example.activity;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 public class EntryCards {
 
     private int ID;
@@ -11,11 +8,7 @@ public class EntryCards {
     private int Picture;
     private String Birthdate;
     private String Gender;
-    private String Street;
-    private String HouseNumber;
-    private String Barangay;
-    private String Municipality;
-    private String Province;
+    private String Address;
     private String Phone;
 
     private boolean c1;
@@ -29,6 +22,8 @@ public class EntryCards {
     private boolean c9;
     private boolean c10;
 
+    private String OtherInfo;
+
 
     public int getID() {
         return ID;
@@ -36,6 +31,14 @@ public class EntryCards {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public String getOtherInfo() {
+        return OtherInfo;
+    }
+
+    public void setOtherInfo(String otherInfo) {
+        OtherInfo = otherInfo;
     }
 
     public String getName() {
@@ -78,44 +81,12 @@ public class EntryCards {
         Gender = gender;
     }
 
-    public String getStreet() {
-        return Street;
+    public String getAddress() {
+        return Address;
     }
 
-    public void setStreet(String street) {
-        Street = street;
-    }
-
-    public String getHouseNumber() {
-        return HouseNumber;
-    }
-
-    public void setHouseNumber(String houseNumber) {
-        HouseNumber = houseNumber;
-    }
-
-    public String getBarangay() {
-        return Barangay;
-    }
-
-    public void setBarangay(String barangay) {
-        Barangay = barangay;
-    }
-
-    public String getMunicipality() {
-        return Municipality;
-    }
-
-    public void setMunicipality(String municipality) {
-        Municipality = municipality;
-    }
-
-    public String getProvince() {
-        return Province;
-    }
-
-    public void setProvince(String province) {
-        Province = province;
+    public void setAddress(String address) {
+        Address = address;
     }
 
     public String getPhone() {
@@ -216,20 +187,16 @@ public class EntryCards {
 
 
 
-    public EntryCards(int ID, String Name, String Description, int Picture, String Birthdate, String Gender, String Street,
-                      String HouseNumber,String Barangay, String Municipality, String Province, String Phone, boolean c1, boolean c2, boolean c3,
-                      boolean c4, boolean c5, boolean c6, boolean c7, boolean c8, boolean c9, boolean c10){
+    public EntryCards(int ID, String Name, String Description, int Picture, String Birthdate, String Gender, String Address,
+                      String Phone, boolean c1, boolean c2, boolean c3,
+                      boolean c4, boolean c5, boolean c6, boolean c7, boolean c8, boolean c9, boolean c10, String OtherInfo){
         this.ID=ID;
         this.Name=Name;
         this.Description=Description;
         this.Picture=Picture;
         this.Birthdate=Birthdate;
         this.Gender=Gender;
-        this.Street=Street;
-        this.HouseNumber=HouseNumber;
-        this.Barangay=Barangay;
-        this.Municipality=Municipality;
-        this.Province=Province;
+        this.Address=Address;
         this.Phone=Phone;
         this.c1=c1;
         this.c2=c2;
@@ -241,6 +208,7 @@ public class EntryCards {
         this.c8=c8;
         this.c9=c9;
         this.c10=c10;
+        this.OtherInfo = OtherInfo;
     }
 
 

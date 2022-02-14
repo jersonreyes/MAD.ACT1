@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -22,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -33,6 +35,7 @@ public class AddEntry extends AppCompatActivity {
     ImageView ProfileLabel;
     Button datebtn;
     private static final int picCode = 1212;
+    boolean birthdateSet=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +60,7 @@ public class AddEntry extends AppCompatActivity {
         RadioButton isFemale = (RadioButton) findViewById(R.id.addEntryfemale);
         RadioButton isOthers = (RadioButton) findViewById(R.id.addEntryothers);
 
-        EditText Street = (EditText) findViewById(R.id.addEntryStreet);
-        EditText HouseNumber = (EditText) findViewById(R.id.addEntryHouseNumber);
-
-        AutoCompleteTextView Barangay = (AutoCompleteTextView) findViewById(R.id.addEntryBarangay);
-        AutoCompleteTextView Municipality = (AutoCompleteTextView) findViewById(R.id.addEntryMunicipality);
-        AutoCompleteTextView Province = (AutoCompleteTextView) findViewById(R.id.addEntryProvince);
+        EditText Address = (EditText) findViewById(R.id.addEntryAddress);
 
         EditText Phone = (EditText) findViewById(R.id.addEntryNumber);
 
@@ -77,6 +75,8 @@ public class AddEntry extends AppCompatActivity {
         CheckBox c9 = (CheckBox) findViewById(R.id.addEntrych9);
         CheckBox c10 = (CheckBox) findViewById(R.id.addEntrych10);
 
+        EditText OtherInfo = (EditText) findViewById(R.id.addEntryOtherInfo);
+
         Button Add = (Button) findViewById(R.id.addEntrySave);
         Button Cancel = (Button) findViewById(R.id.addEntryCancel);
 
@@ -84,40 +84,70 @@ public class AddEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String gender;
-                if(isMale.isChecked())
-                    gender="Male";
+                if (isMale.isChecked())
+                    gender = "Male";
                 else if (isFemale.isChecked())
-                    gender="Female";
+                    gender = "Female";
                 else
-                    gender="Others";
+                    gender = "Others";
 
-                EntryList.cardlist.add(new EntryCards(
-                        View.generateViewId(),
-                        name.getText().toString(),
-                        remark.getText().toString(),
-                        R.drawable.profile_template,
-                        datebtn.getText().toString(),
-                        gender,
-                        Street.getText().toString(),
-                        HouseNumber.getText().toString(),
-                        Barangay.getText().toString(),
-                        Municipality.getText().toString(),
-                        Province.getText().toString(),
-                        Phone.getText().toString(),
-                        c1.isChecked(),
-                        c2.isChecked(),
-                        c3.isChecked(),
-                        c4.isChecked(),
-                        c5.isChecked(),
-                        c6.isChecked(),
-                        c7.isChecked(),
-                        c8.isChecked(),
-                        c9.isChecked(),
-                        c10.isChecked()
-                ));
+                String toFill = "";
+                GradientDrawable border = new GradientDrawable();
+                border.setColor(0xFFFFFFFF); //white background
+                border.setStroke(2, 0xFFFF0000);
 
-                Intent toEntryList = new Intent(con, EntryList.class);
-                startActivity(toEntryList);
+                //CHECK FIRST IF ALL REQUIRED FIELDS ARE FILLED, IF FILLED THEN ADD
+                if (name.getText().length() == 0) {
+                    toFill += "\nName";
+                    name.setBackgroundDrawable(border);
+                }
+                if (remark.getText().length() == 0) {
+                    toFill += "\nRemarks";
+                    remark.setBackgroundDrawable(border);
+                }
+                if (!birthdateSet) {
+                    toFill += "\nBirthday";
+                    datebtn.setBackgroundDrawable(border);
+                }
+                RadioGroup genderfield = (RadioGroup) findViewById(R.id.entryAddGender);
+                if (genderfield.getCheckedRadioButtonId()==-1) {
+                    toFill += "\nGender";
+                    genderfield.setBackgroundDrawable(border);
+                }
+                if (!(c1.isChecked() || c2.isChecked() || c3.isChecked() || c4.isChecked() || c5.isChecked() ||
+                        c6.isChecked() || c7.isChecked() || c8.isChecked() || c9.isChecked() || c10.isChecked())) {
+                    toFill += "\nHobbies";
+                    findViewById(R.id.addEntryHobbies).setBackgroundDrawable(border);
+                    findViewById(R.id.addEntryHobbies).setPadding(5,5,5,5);
+                }
+
+
+                if (toFill.length() == 0) {
+                    EntryList.cardlist.add(new EntryCards(
+                            View.generateViewId(),
+                            name.getText().toString(),
+                            remark.getText().toString(),
+                            R.drawable.profile_template,
+                            datebtn.getText().toString(),
+                            gender,
+                            Address.getText().toString(),
+                            Phone.getText().toString(),
+                            c1.isChecked(),
+                            c2.isChecked(),
+                            c3.isChecked(),
+                            c4.isChecked(),
+                            c5.isChecked(),
+                            c6.isChecked(),
+                            c7.isChecked(),
+                            c8.isChecked(),
+                            c9.isChecked(),
+                            c10.isChecked(),
+                            OtherInfo.getText().toString()
+                    ));
+
+                    Intent toEntryList = new Intent(con, EntryList.class);
+                    startActivity(toEntryList);
+                }
             }
         });
 
@@ -138,6 +168,7 @@ public class AddEntry extends AppCompatActivity {
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month++;
                         datebtn.setText(dayOfMonth + "/" + month + "/" + year);
+                        birthdateSet=true;
                     }
                 }, year, month, day);
 
