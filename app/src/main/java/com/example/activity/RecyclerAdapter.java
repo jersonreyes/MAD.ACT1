@@ -1,6 +1,8 @@
 package com.example.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -53,21 +55,41 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardVi
                 clickedFields(holder);
             }
         });
-
+        holder.cardTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedFields(holder);
+            }
+        });
+        holder.cardDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedFields(holder);
+            }
+        });
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent toEdit = new Intent(con, EditEntry.class);
                 toEdit.putExtra("Position", String.valueOf(holder.getAdapterPosition()));
                 con.startActivity(toEdit);
-
             }
         });
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EntryList.cardlist.remove(holder.getAdapterPosition());
-                notifyItemRemoved(holder.getAdapterPosition());
+                AlertDialog.Builder alert = new AlertDialog.Builder(con)
+                        .setTitle("Notice")
+                        .setMessage("Are you sure you want to delete this entry?")
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                EntryList.cardlist.remove(holder.getAdapterPosition());
+                                notifyItemRemoved(holder.getAdapterPosition());
+                            }
+                        })
+                        .setPositiveButton("No", null);
+                alert.show();
             }
         });
     }

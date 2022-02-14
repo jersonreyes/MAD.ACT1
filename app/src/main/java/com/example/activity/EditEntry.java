@@ -33,8 +33,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EditEntry extends AppCompatActivity {
     Context con=this;
     ImageView ProfileLabel;
-    int month,day,year;
-    Button datebtn;
     private static final int picCode = 1313;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,7 @@ public class EditEntry extends AppCompatActivity {
         setContentView(R.layout.editentry);
 
         ProfileLabel = (ImageView) findViewById(R.id.entryProfileLabel);
+
         Button ProfileBtn = (Button) findViewById(R.id.editProfileBtn);
         ProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +53,11 @@ public class EditEntry extends AppCompatActivity {
 
         Bundle intent = getIntent().getExtras();
         int key = Integer.parseInt(intent.getString("Position"));
+        ProfileLabel.setImageResource(EntryList.cardlist.get(key).getPicture());
+
         EditText name = (EditText) findViewById(R.id.entryEditName);
         EditText remark = (EditText) findViewById(R.id.entryEditRemark);
-        datebtn = (Button) findViewById(R.id.editDate);
+        EditText birthdate = (EditText) findViewById(R.id.entryEditBirthday);
 
         RadioButton isMale = (RadioButton) findViewById(R.id.male);
         RadioButton isFemale = (RadioButton) findViewById(R.id.female);
@@ -85,11 +86,7 @@ public class EditEntry extends AppCompatActivity {
         //SETUP THE ENTRY
         name.setText(EntryList.cardlist.get(key).getName());
         remark.setText(EntryList.cardlist.get(key).getDescription());
-        datebtn.setText(EntryList.cardlist.get(key).getBirthdate());
-        String[] dates = EntryList.cardlist.get(key).getBirthdate().split("/");
-        month=Integer.parseInt(dates[0]);
-        day=Integer.parseInt(dates[1]);
-        year=Integer.parseInt(dates[2]);
+        birthdate.setText(EntryList.cardlist.get(key).getBirthdate());
 
         if(EntryList.cardlist.get(key).getGender()=="Male")
             isMale.setChecked(true);
@@ -137,7 +134,7 @@ public class EditEntry extends AppCompatActivity {
                 //Overwrite the current card
                 EntryList.cardlist.get(key).setName(name.getText().toString());
                 EntryList.cardlist.get(key).setDescription(remark.getText().toString());
-                EntryList.cardlist.get(key).setBirthdate(datebtn.getText().toString());
+                EntryList.cardlist.get(key).setBirthdate(birthdate.getText().toString());
                 EntryList.cardlist.get(key).setGender(gender);
                 EntryList.cardlist.get(key).setAddress(Address.getText().toString());
                 EntryList.cardlist.get(key).setPhone(Phone.getText().toString());
@@ -164,20 +161,6 @@ public class EditEntry extends AppCompatActivity {
                 startActivity(toEntryList);
             }
         });
-    }
-
-    public void dateDialog(View view) {
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(con, R.style.DialogTheme,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month++;
-                        datebtn.setText(dayOfMonth + "/" + month + "/" + year);
-                    }
-                }, year, month, day);
-
-        datePickerDialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_corners_plain);
-        datePickerDialog.show();
     }
 
     protected void onActivityResult(int reqCode, int resCode, Intent data) {

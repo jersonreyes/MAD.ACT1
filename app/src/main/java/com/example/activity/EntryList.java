@@ -69,9 +69,19 @@ public class EntryList extends AppCompatActivity {
         LogoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cardlist=new ArrayList<EntryCards>();
-                Intent toLogIn = new Intent(con, MainActivity.class);
-                startActivity(toLogIn);
+                AlertDialog.Builder alert = new AlertDialog.Builder(con)
+                        .setTitle("Logout")
+                        .setMessage("Are you sure you want to Logout?")
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                cardlist=new ArrayList<EntryCards>();
+                                Intent toLogIn = new Intent(con, MainActivity.class);
+                                startActivity(toLogIn);
+                            }
+                        })
+                        .setPositiveButton("No", null);
+                alert.show();
             }
         });
         AddButton.setOnClickListener(new View.OnClickListener() {

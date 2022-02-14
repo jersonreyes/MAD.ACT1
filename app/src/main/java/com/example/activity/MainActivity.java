@@ -49,12 +49,6 @@ public class MainActivity extends AppCompatActivity {
             populated = true;
         }
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setTitle("BAGONG LAMAN NG 2D ARRAYLIST")
-                .setMessage(db.toString())
-                .setPositiveButton("Okay", null);
-        alert.show();
-
         //SET STATUSBAR AS TRANSAPRENT
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_main);

@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -74,6 +75,15 @@ public class Registration extends AppCompatActivity {
             public void onClick(View v) {
                 Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(camera, picCode);
+            }
+        });
+
+        ImageView backBtn = (ImageView) findViewById(R.id.registerBackBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toMainAct = new Intent(con, MainActivity.class);
+                startActivity(toMainAct);
             }
         });
 
@@ -378,11 +388,8 @@ public class Registration extends AppCompatActivity {
         }
 
         if (error_ctr > 0) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                    .setTitle("Error")
-                    .setMessage(error_list)
-                    .setPositiveButton("Okay", null);
-            alert.show();
+
+
         } else {
 
             int selectedId = gender.getCheckedRadioButtonId();

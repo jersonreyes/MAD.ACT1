@@ -33,9 +33,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AddEntry extends AppCompatActivity {
     Context con=this;
     ImageView ProfileLabel;
-    Button datebtn;
     private static final int picCode = 1212;
-    boolean birthdateSet=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +52,7 @@ public class AddEntry extends AppCompatActivity {
 
         EditText name = (EditText) findViewById(R.id.entryAddName);
         EditText remark = (EditText) findViewById(R.id.entryAddRemark);
-        datebtn = (Button) findViewById(R.id.addEntryDate);
+        EditText birthdate = (EditText) findViewById(R.id.entryAddBirthday);
 
         RadioButton isMale = (RadioButton) findViewById(R.id.addEntrymale);
         RadioButton isFemale = (RadioButton) findViewById(R.id.addEntryfemale);
@@ -98,25 +96,25 @@ public class AddEntry extends AppCompatActivity {
 
                 //CHECK FIRST IF ALL REQUIRED FIELDS ARE FILLED, IF FILLED THEN ADD
                 if (name.getText().length() == 0) {
-                    toFill += "\nName";
+                    toFill += "\n-Name";
                     name.setBackgroundDrawable(border);
                 }
                 if (remark.getText().length() == 0) {
-                    toFill += "\nRemarks";
+                    toFill += "\n-Remarks";
                     remark.setBackgroundDrawable(border);
                 }
-                if (!birthdateSet) {
-                    toFill += "\nBirthday";
-                    datebtn.setBackgroundDrawable(border);
+                if (birthdate.getText().length()==0) {
+                    toFill += "\n-Birthday";
+                    birthdate.setBackgroundDrawable(border);
                 }
                 RadioGroup genderfield = (RadioGroup) findViewById(R.id.entryAddGender);
                 if (genderfield.getCheckedRadioButtonId()==-1) {
-                    toFill += "\nGender";
+                    toFill += "\n-Gender";
                     genderfield.setBackgroundDrawable(border);
                 }
                 if (!(c1.isChecked() || c2.isChecked() || c3.isChecked() || c4.isChecked() || c5.isChecked() ||
                         c6.isChecked() || c7.isChecked() || c8.isChecked() || c9.isChecked() || c10.isChecked())) {
-                    toFill += "\nHobbies";
+                    toFill += "\n-Hobbies";
                     findViewById(R.id.addEntryHobbies).setBackgroundDrawable(border);
                     findViewById(R.id.addEntryHobbies).setPadding(5,5,5,5);
                 }
@@ -128,7 +126,7 @@ public class AddEntry extends AppCompatActivity {
                             name.getText().toString(),
                             remark.getText().toString(),
                             R.drawable.profile_template,
-                            datebtn.getText().toString(),
+                            birthdate.getText().toString(),
                             gender,
                             Address.getText().toString(),
                             Phone.getText().toString(),
@@ -147,6 +145,12 @@ public class AddEntry extends AppCompatActivity {
 
                     Intent toEntryList = new Intent(con, EntryList.class);
                     startActivity(toEntryList);
+                }else{
+                    AlertDialog.Builder alert = new AlertDialog.Builder(con)
+                            .setTitle("Please fill up the following details")
+                            .setMessage(toFill.substring(1))
+                            .setPositiveButton("Okay", null);
+                    alert.show();
                 }
             }
         });
@@ -160,22 +164,6 @@ public class AddEntry extends AppCompatActivity {
         });
     }
 
-    public void dateDialog(View view) {
-        int day = 1, month = 0, year = 1990;
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(con, R.style.DialogTheme,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month++;
-                        datebtn.setText(dayOfMonth + "/" + month + "/" + year);
-                        birthdateSet=true;
-                    }
-                }, year, month, day);
-
-        datePickerDialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_corners_plain);
-        datePickerDialog.show();
-
-    }
 
     protected void onActivityResult(int reqCode, int resCode, Intent data) {
         super.onActivityResult(reqCode, resCode, data);
@@ -184,4 +172,5 @@ public class AddEntry extends AppCompatActivity {
             ProfileLabel.setImageBitmap(pic);
         }
     }
+
 }
